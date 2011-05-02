@@ -3,8 +3,9 @@
 % Dr. Clark Turner
 
 % One Column Format
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
+\usepackage{multicol}
 \usepackage{setspace}
 \usepackage{url}
 
@@ -26,7 +27,7 @@ Dr. Clark Turner \vspace{10pt} \\
 \maketitle
 
 \vfill  %in combination with \newpage this forces the abstract to the bottom of the page
-\begin{abstract}
+\begin{abstract} % {{{1
 Google's Android platform was released on November 5, 2007
 \cite{open-handset-alliance-ann} as an open-source operating system for
 consumer-level mobile devices, especially phones.  Android is based on Linux,
@@ -42,16 +43,25 @@ created to meet requirements ethically.
 
 (It should be noted that the author of this paper is employed by Google at
 time of writing.)
-
-\end{abstract}
+\end{abstract} % }}}1
 
 \thispagestyle{empty} %remove page number from title page, but still keep it as pg #1
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%
-%%% Known Facts  %%%
-%%%%%%%%%%%%%%%%%%%%
-\section{Facts}
+%Create a table of contents with all headings of level 3 and above.
+%http://en.wikibooks.org/wiki/LaTeX/Document_Structure#Table_of_contents has
+%info on customizing the table of contents
+\thispagestyle{empty}  %Remove page number from TOC
+\tableofcontents
+
+\newpage
+
+%start 2 column format
+\begin{multicols}{2}
+%Start numbering first page of content as page 1
+\setcounter{page}{1}
+
+\section{Facts} % {{{1
 
 In late 2007, Google (along with a handful of other companies) announced the
 Open Handset Alliance \cite{open-handset-alliance-ann} along with the operating
@@ -63,41 +73,44 @@ Android in the Java programming language.
 
 % Citations needed
 Java is a programming language created by James Gosling that was originally
-maintained by Sun Microsystems.  In 2006, Sun announced that Java's release
-under the open source GNU GPL license. \cite{sun-open-sources-java} On August
-20, 2009, the U.S.~Justice Department approved Oracle's deal to acquire Sun
-Microsystems, along with its intellectual property: Java, MySQL, OpenOffice,
-and many other notable projects. \cite{oracle-buys-sun}
+maintained by Sun Microsystems.  In 2006, Sun announced Java's release under the
+open source GNU GPL license. \cite{sun-open-sources-java} On August 20, 2009,
+the U.S.~Justice Department approved Oracle's deal to acquire Sun Microsystems,
+along with its intellectual property: Java, MySQL, OpenOffice, and many other
+notable projects. \cite{oracle-buys-sun}
 
 In order to run Java code, one must use a virtual machine --- a program that
 interprets bytecodes created by a Java compiler and translates it into
 instructions the CPU can understand. \cite{javavm-bytecode} There are many
-different implementations of the specification: HotSpot (Sun/Oracle's de facto
-implemntation) \cite{hotspot}, Apache Harmony \cite{apache-harmony}, and
+different implementations of the JavaVM specification: HotSpot (Sun/Oracle's de
+facto implementation) \cite{hotspot}, Apache Harmony \cite{apache-harmony}, and
 Red Hat's IcedTea \cite{icedtea}, to name a few.  The developers of Android
 created a new virtual machine --- Dalvik.
 
 Dalvik executes bytecodes in a custom executable format \cite{dalvik-bytecode}
-that is different from Oracle's HotSpot virtual machine
-\cite{javavm-bytecode}.  In order to fulfill the performance requirements and
-restrictions imposed by a phone's hardware, Dalvik uses a different
-architecture to execute code.  The Android SDK includes a program that converts
-a Java class file produced by Oracle's Java compiler into the Dalvik executable
-format. \cite{android-sdk-building}
+that is different from Oracle's HotSpot virtual machine \cite{javavm-bytecode}.
+In order to fulfill the performance requirements and restrictions imposed by a
+phone's hardware, Dalvik uses a different architecture to execute code.  The
+Android SDK includes a program that converts a Java class file produced by
+Oracle's Java compiler into the Dalvik executable format.
+\cite{android-sdk-building}
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
 infringes upon their intellectual property. \cite{oracle-lawsuit}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Research Question %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Research Question}
+\section{Research Question} % {{{1
 Is Google's use of the Dalvik virtual machine in Android ethical?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Extant Arguments from External Sources %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Extant arguments}
+\section{Extant Arguments} % {{{1
+
+\subsection{Oracle's Claim} % {{{2
+
+Oracle's claim is that ``as a direct and proximate result of Google’s direct
+and indirect willful copyright infringement, Oracle America has suffered, and
+will continue to suffer, monetary loss to its business, reputation, and
+goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
+
+\subsection{Groklaw's Response} % {{{2
 
 Groklaw (a website run by Pamela Jones) posted this reply: \cite{groklaw}
 
@@ -109,66 +122,93 @@ basis can Oracle prevail? Perhaps Oracle figures no room at Google is clean
 enough. And of course clean room means nothing when it comes to patents.
 \end{quotation}
 
-Oracle's claim is that ``as a direct and proximate result of Google’s direct
-and indirect willful copyright infringement, Oracle America has suffered, and
-will continue to suffer, monetary loss to its business, reputation, and
-goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
+\section{Analysis} % {{{1
+\label{sec:analysis}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Analytic principles %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Applicable analytic principles}
+%\begin{itemize}
+%    \item \cite[\S 2.02]{secode} Not knowingly use software that is obtained or
+%    retained either illegaly or unethically.
+%
+%    \item \cite[\S 2.06]{secode} Identify, document, collect evidence and
+%    report to the client or the employer promptly if, in their opinion, a
+%    project is likely to fail, to prove too expensive, to violate intellectual
+%    property law, or otherwise to be problematic.
+%
+%    \item \cite[\S 3.01]{secode} Strive for high quality, acceptable cost and a
+%    reasonable schedule, ensuring significant tradeoffs are clear to and
+%    accepted by the employer and the client, and are available for
+%    consideration by the user and the public.
+%
+%    \item \cite[\S 6.04]{secode} Support, as members of a profession, other
+%    software engineers striving to follow this Code.
+%
+%    \item \cite[\S 7.03]{secode} Credit fully the work of others and refrain
+%    from taking undue credit.
+%\end{itemize}
 
-\begin{itemize}
-    \item \cite[\S 2.02]{secode} Not knowingly use software that is obtained or
-    retained either illegaly or unethically.
+\subsection{Criteria for Analysis} % {{{2
+\label{sub:analysis_criteria}
 
-    \item \cite[\S 2.06]{secode} Identify, document, collect evidence and
-    report to the client or the employer promptly if, in their opinion, a
-    project is likely to fail, to prove too expensive, to violate intellectual
-    property law, or otherwise to be problematic.
+In order to establish whether Google's actions are ethical or unethical, it is
+important to provide an objective set of standards that are well-accepted for
+the basis of this analysis.  At first glance, using Google's Code of Conduct
+\cite{google-conduct} seems like a reasonable choice, and many parts of the Code
+of Conduct are applicable here.  However, this analysis will use the ACM
+Software Engineering Code of Ethics and Professional Practice \cite{secode} as
+it is non-partial and includes more restrictions that Google's Code of Conduct
+does.
 
-    \item \cite[\S 3.01]{secode} Strive for high quality, acceptable cost and a
-    reasonable schedule, ensuring significant tradeoffs are clear to and
-    accepted by the employer and the client, and are available for
-    consideration by the user and the public.
+By this measure, Google would be unethical in creating Dalvik if it violated the
+Software Engineering Code of Ethics and Professional Practice \cite{secode} or
+if there was a higher principle that it conflicts with.
 
-    \item \cite[\S 6.04]{secode} Support, as members of a profession, other
-    software engineers striving to follow this Code.
+% subsection analysis_criteria }}}2
 
-    \item \cite[\S 7.03]{secode} Credit fully the work of others and refrain
-    from taking undue credit.
-\end{itemize}
+\subsection{Licensing} % {{{2
+\label{sub:analysis_licensing}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Abstract your Expected Analysis %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Abstract of Expected Analysis}
+Firstly, Google's implementation of Dalvik does not use any of Oracle's HotSpot
+VM, it uses portions of the Apache Harmony libraries (which are credited
+properly \cite{dalvik-readme} and are preserved under Apache's license).  
 
-Google would be unethical in creating Dalvik if it violated the Software
-Engineering Code of Ethics and Professional Practice \cite{secode} or if there
-was a higher principle that it conflicts with.  Firstly, Google's
-implementation of Dalvik does not use any of Oracle's HotSpot VM, it uses
-portions of the Apache Harmony libraries (which are credited properly
-\cite{dalvik-readme} and are preserved under Apache's license).  Secondly, by
-creating a new virtual machine, Google was able to release Android under a
-license that they deemed acceptable without illegally using Oracle's software,
-thus respecting Section 2.02 of the Software Engineering Code \cite{secode}.
+Secondly, by creating a new virtual machine, Google was able to release Android
+under a license that they deemed acceptable without illegally using Oracle's
+software, thus respecting Section 2.02 of the Software Engineering Code
+\cite{secode}.
+
+% subsection analysis_licensing }}}2
+
+\subsection{Quality} % {{{2
+\label{sub:analysis_quality}
 
 Furthermore, Google's creation of Dalvik upholds Section 3.01 of the Software
 Engineering Code \cite{secode}, specifically, ``striv[ing] for high quality,
 acceptable cost, and a reasonable schedule'' in a product.  Dalvik would not
 have been completed in a reasonable amount of time without using portions of
-Apache Harmony nor would it be as high of quality if it had used Oracle's
-HotSpot.  There are other Java virtual machines that could have been used, but
-none met the goals of the Android project.  The performance, power, and
-licensing requirements that Google had for Android would not have been met by
-an existing virtual machine, so creating Dalvik was the only ethical choice
-that Google could be made.
+Apache Harmony nor would it be as high quality if it had used Oracle's HotSpot.
+There are other Java virtual machines that could have been used, but none met
+the goals of the Android project.
+
+% subsection analysis_quality }}}2
+
+% section analysis }}}1
+
+\section{Conclusion} % {{{1
+
+The performance, power, and licensing requirements that Google had for Android
+would not have been met by an existing virtual machine, so creating Dalvik was
+the only ethical choice that Google could be made. 
+
+% }}}1
+\end{multicols}
+\newpage
+
+%cite all the references from the bibtex you haven't explicitly cited
+%\nocite{*}
 
 \bibliographystyle{IEEEannot}
-
 \bibliography{termpaper}
+
 \end{document}
 
-% vim: ft=tex tw=80
+% vim: ft=tex tw=80 fdm=marker fdc=3 spell
