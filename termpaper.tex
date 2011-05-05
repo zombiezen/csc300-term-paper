@@ -38,8 +38,10 @@ after Android's release, Oracle America Inc.~filed a lawsuit against Google
 \cite{oracle-lawsuit}, claiming that Dalvik infringed on Oracle's registered
 patents.  Google's use of the Dalvik virtual machine in Android is ethical
 because it does not violate any portion of the Software Engineering Code of
-Ethics and Professional Practice \cite{secode} and it is a product that was
-created to meet requirements ethically.
+Ethics and Professional Practice \cite{secode}.  Dalvik's creation was the only
+way to meet performance, memory, and licensing restrictions, which aligns with
+the Software Engineering Code's principle of building high quality software that
+meets requirements.
 
 (It should be noted that the author of this paper is employed by Google at
 time of writing.)
@@ -62,6 +64,7 @@ time of writing.)
 \setcounter{page}{1}
 
 \section{Facts} % {{{1
+\label{sec:facts}
 
 In late 2007, Google (along with a handful of other companies) announced the
 Open Handset Alliance \cite{open-handset-alliance-ann} along with the operating
@@ -71,7 +74,6 @@ order to provide an open source operating system for phones.  Google provides a
 software development kit (SDK) that allows developers to write applications for
 Android in the Java programming language.
 
-% Citations needed
 Java is a programming language created by James Gosling that was originally
 maintained by Sun Microsystems.  In 2006, Sun announced Java's release under the
 open source GNU GPL license. \cite{sun-open-sources-java} On August 20, 2009,
@@ -93,24 +95,40 @@ In order to fulfill the performance requirements and restrictions imposed by a
 phone's hardware, Dalvik uses a different architecture to execute code.  The
 Android SDK includes a program that converts a Java class file produced by
 Oracle's Java compiler into the Dalvik executable format.
-\cite{android-sdk-building}
+\cite{android-sdk-building}  In order to provide compatibility with the Java
+libraries, Dalvik includes portions of the Apache Harmony library.
+\cite{apache-harmony} \cite{dalvik-readme}  The Apache Harmony project is
+released under the Apache License 2.0 \cite{apache-license} which is ``preferred
+by many companies because such licenses make it possible to use open-source
+software code without having to turn proprietary enhancements back over to the
+open source software community.'' \cite{why-apache2-license}
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
 infringes upon their intellectual property. \cite{oracle-lawsuit}
 
+% end facts }}}1
+
 \section{Research Question} % {{{1
+\label{sec:question}
 Is Google's use of the Dalvik virtual machine in Android ethical?
 
+% end question }}}1
+
 \section{Extant Arguments} % {{{1
+\label{sec:args}
 
 \subsection{Oracle's Claim} % {{{2
+\label{sub:args_oracle}
 
 Oracle's claim is that ``as a direct and proximate result of Google’s direct
 and indirect willful copyright infringement, Oracle America has suffered, and
 will continue to suffer, monetary loss to its business, reputation, and
 goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
 
+% sub args_oracle }}}2
+
 \subsection{Groklaw's Response} % {{{2
+\label{sub:args_groklaw}
 
 Groklaw (a website run by Pamela Jones) posted this reply: \cite{groklaw}
 
@@ -121,6 +139,10 @@ and it's built from the ground up without any Sun technology or IP, on what
 basis can Oracle prevail? Perhaps Oracle figures no room at Google is clean
 enough. And of course clean room means nothing when it comes to patents.
 \end{quotation}
+
+% sub args_groklaw }}}2
+
+% end args }}}1
 
 \section{Analysis} % {{{1
 \label{sec:analysis}
@@ -155,7 +177,7 @@ the basis of this analysis.  At first glance, using Google's Code of Conduct
 \cite{google-conduct} seems like a reasonable choice, and many parts of the Code
 of Conduct are applicable here.  However, this analysis will use the ACM
 Software Engineering Code of Ethics and Professional Practice \cite{secode} as
-it is non-partial and includes more restrictions that Google's Code of Conduct
+it is non-partial and includes more restrictions than Google's Code of Conduct
 does.
 
 By this measure, Google would be unethical in creating Dalvik if it violated the
@@ -167,14 +189,25 @@ if there was a higher principle that it conflicts with.
 \subsection{Licensing} % {{{2
 \label{sub:analysis_licensing}
 
-Firstly, Google's implementation of Dalvik does not use any of Oracle's HotSpot
-VM, it uses portions of the Apache Harmony libraries (which are credited
-properly \cite{dalvik-readme} and are preserved under Apache's license).  
+Firstly, Google's implementation of Dalvik does not use any of
+Oracle's~HotSpot~VM, it uses portions of the Apache~Harmony libraries (which are
+credited properly \cite{dalvik-readme} and are preserved under Apache's
+license).  The Apache~Harmony is released under Apache~License~2.0 --- a
+software license that grants rights to redistribute software, as long as
+distributors preserve the copyright notices and note any modifications made.
+\cite{apache-license} Google is then obligated to distribute Dalvik under a
+license that has terms compatible with the Apache~License~2.0.  Google
+distributes Dalvik under the same Apache~License~2.0 and credits Harmony in the
+Dalvik README.  \cite{dalvik-readme}
 
 Secondly, by creating a new virtual machine, Google was able to release Android
 under a license that they deemed acceptable without illegally using Oracle's
-software, thus respecting Section 2.02 of the Software Engineering Code
-\cite{secode}.
+software, thus respecting Section 2.02 of the Software Engineering Code.
+\cite[\S 2.02]{secode}  One of the requirements of Android was to provide a
+common platform for a wide variety of phones \cite{open-handset-alliance-ann},
+but the only way to ensure a common platform is to encourage widespread
+adoption.  Companies prefer the Apache License 2.0 because of its less
+restrictive nature than the GPL. \cite{why-apache2-license}
 
 % subsection analysis_licensing }}}2
 
@@ -186,6 +219,7 @@ Engineering Code \cite{secode}, specifically, ``striv[ing] for high quality,
 acceptable cost, and a reasonable schedule'' in a product.  Dalvik would not
 have been completed in a reasonable amount of time without using portions of
 Apache Harmony nor would it be as high quality if it had used Oracle's HotSpot.
+HotSpot doesn't fit within the performance characteristics of lower-end phones.
 There are other Java virtual machines that could have been used, but none met
 the goals of the Android project.
 
@@ -194,18 +228,19 @@ the goals of the Android project.
 % section analysis }}}1
 
 \section{Conclusion} % {{{1
+\label{sec:conclusion}
 
 The performance, power, and licensing requirements that Google had for Android
 would not have been met by an existing virtual machine, so creating Dalvik was
 the only ethical choice that Google could be made. 
 
-% }}}1
+% section conclusion }}}1
+
 \end{multicols}
 \newpage
 
 %cite all the references from the bibtex you haven't explicitly cited
-%\nocite{*}
-
+\nocite{*}
 \bibliographystyle{IEEEannot}
 \bibliography{termpaper}
 
