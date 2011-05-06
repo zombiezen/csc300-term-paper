@@ -29,23 +29,20 @@ Dr. Clark Turner \vspace{10pt} \\
 \vfill  %in combination with \newpage this forces the abstract to the bottom of the page
 \begin{abstract} % {{{1
 
-Google's Android platform was released on November 5, 2007
-\cite{open-handset-alliance-ann} as an open-source operating system for
-consumer-level mobile devices, especially phones.  Android is based on Linux,
-and exposes an application program interface (API) for the Java programming
-language.  To improve performance, Android uses a custom virtual machine ---
-called Dalvik --- to run the Java programs deployed on Android.  Three years
-after Android's release, Oracle America Inc.~filed a lawsuit against Google
-\cite{oracle-lawsuit}, claiming that Dalvik infringed on Oracle's registered
-patents.  Dalvik's creation was the only way to meet performance, memory, and
-licensing restrictions, which aligns with the Software Engineering Code's
-principle of building high quality software that meets requirements.  Google's
-use of the Dalvik virtual machine in Android is ethical because it does not
-violate any portion of the Software Engineering Code of Ethics and Professional
-Practice \cite{secode}.  
+Google released Android on November 5, 2007 \cite{open-handset-alliance-ann} as
+a platform for consumer-level mobile devices, particularly phones.  Programmers
+can write applications for Android in Java.  These programs are run with Dalvik
+--- a virtual machine that Google created.  In 2010, Oracle~America~Inc.\ filed
+a lawsuit against Google \cite{oracle-lawsuit}, claiming that Dalvik infringed
+on Oracle's intellectual property.  Is Google's use of the Dalvik virtual
+machine in Android ethical?  Creating Dalvik was the only way to ethically meet
+performance, memory, and licensing restrictions, which aligns with the spirit of
+the ACM Software Engineering Code of Ethics and Professional Practice
+\cite{secode}.
 
-(It should be noted that the author of this paper is employed by Google at
-time of writing.)
+(It should be noted that the author of this paper is employed by Google at time
+of writing.)
+
 \end{abstract} % }}}1
 
 \thispagestyle{empty} %remove page number from title page, but still keep it as pg #1
@@ -152,6 +149,12 @@ and indirect willful copyright infringement, Oracle America has suffered, and
 will continue to suffer, monetary loss to its business, reputation, and
 goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
 
+The first claim being made is that Google is infringing on Oracle's copyright
+(which would be unethical).  The second claim is that by infringing, Google is
+harming the public by causing losses to Oracle's employees and investors.
+Either of these actions would be unethical, and the first would certainly be
+illegal.
+
 % sub args_oracle }}}2
 
 \subsection{Groklaw's Response} % {{{2
@@ -203,7 +206,7 @@ unethical behavior.
 %\end{itemize}
 
 \subsection{Criteria for Analysis} % {{{2
-\label{sub:analysis_criteria}
+\label{sub:criteria}
 
 In order to establish whether Google's actions are ethical or unethical, it is
 important to provide an objective set of standards that are well-accepted for
@@ -218,10 +221,19 @@ By this measure, Google would be unethical in creating Dalvik if it violated the
 Software Engineering Code of Ethics and Professional Practice \cite{secode} or
 if there was a higher principle that it conflicts with.
 
-% subsection analysis_criteria }}}2
+% subsection criteria }}}2
 
-\subsection{Licensing} % {{{2
-\label{sub:analysis_licensing}
+\subsection{Requirements} % {{{2
+\label{sub:requirements}
+
+As part of a software engineer's duty to the product, a software engineer should
+``approve software only if they have a well-founded belief that it is safe,
+meets specifications, passes appropriate tests, and does not diminish quality of
+life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  As
+such, Dalvik must meet the requirements
+
+\subsubsection{Licensing} % {{{3
+\label{sub:licensing}
 
 Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
 it uses portions of the Apache~Harmony libraries.  Apache~Harmony is released
@@ -250,10 +262,10 @@ Apache License 2.0 because of its less restrictive nature than the GPL.
 \cite{why-apache2-license} By using the Apache License 2.0, Google can release
 Android under an open source license without illegally using Oracle's software.
 
-% subsection analysis_licensing }}}2
+% subsubsection licensing }}}3
 
-\subsection{Quality} % {{{2
-\label{sub:analysis_quality}
+\subsubsection{Quality} % {{{3
+\label{ssub:quality}
 
 Furthermore, Google's creation of Dalvik upholds Section 3.01 of the Software
 Engineering Code \cite{secode}, specifically, ``striv[ing] for high quality,
@@ -264,7 +276,34 @@ HotSpot doesn't fit within the performance characteristics of lower-end phones.
 There are other Java virtual machines that could have been used, but none met
 the goals of the Android project.
 
-% subsection analysis_quality }}}2
+% subsubsection quality }}}3
+
+% subsection requirements }}}2
+
+\subsection{The Use of Java} % {{{2
+\label{sub:java}
+
+\subsubsection{The dex Program} % {{{3
+\label{ssub:dex}
+
+dex, a part of the Android SDK, is a separate program that runs on Java
+bytecodes and converts them to Dalvik bytecodes.  Converters could be
+written that convert other programming languages to the Dalvik executable
+format; there is no dependency on Java.  Dalvik just happens to include
+libraries that are similar to those in the Java standard library.
+
+% subsubsection dex }}}3
+
+\subsubsection{Damages to Oracle} % {{{3
+\label{ssub:oracle-damage}
+
+(TODO: I will address the claim that damage has been done to Oracle.  Oracle has
+not been damaged, and that by promoting the use of Java, Google's is actually
+encouraging use of Oracle's products.)
+
+% subsubsection oracle-damage }}}3
+
+% subsection java }}}2
 
 % section analysis }}}1
 
