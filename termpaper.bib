@@ -1,43 +1,3 @@
-the terms like handout and texTemp are the unique identifiers you use to cite the item in your paper
-
-@comment{
-@unpublished{handout,  
- author  = {Clark Savage Turner},
- title   = {Term Paper Proposal},
- year    =  {2010},
- month   = {Fall},
- url     = {http://true-reality.net/csc300/resources/assets/Term\%20Paper\%20Proposal\%20F10.pdf},
- annote  = {This source was used to get the requirements for each section of the template.},
-}
-
-@unpublished{texTemp,
- author  = {Jason Anderson},
- title   = {How to Write a SE Code Argument / Term Paper Template},
- year    =  {2010},
- month   = {May},
- url     = {http://true-reality.net/csc300archive/documents/paperInst.tex},
- annote  = {Used this to get started making the template.},
-}
-
-@misc{BibTex,   
- title   = {BibTeX},
- url     = {http://en.wikipedia.org/wiki/BibTeX#Bibliographic_information_file},
- annote  = {Useful in figuring out how to create the .bib file},
-}
-
-@misc{BibMang,   
- title   = {LaTeX/Bibliography Management},
- url     = {http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management},
- annote  = {Useful in figuring out the bibliography structure in tex},
-}
-
-@misc{bibStyle,
- title   = {IEEEannot: A LaTeX IEEE Annotated Bibliography Style Template},
- url     = {http://www.barik.net/sw/ieee/},
- annote  = {the web page where you can download the IEEE annotate style to allow annotations in a bibliography.  Put it in the same folder as the .bib and .tex files.  },
-}
-}
-
 @misc{android-market-share,
   title = {Android market share topples Blackberry},
   author = {Raven Lovecraft},
@@ -48,6 +8,7 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{open-handset-alliance-ann,
   title = {Industry Leaders Announce Open Platform for Mobile Devices},
+  organization = {Open Handset Alliance},
   year = {2007},
   month = {November},
   url = {http://www.openhandsetalliance.com/press_110507.html},
@@ -61,8 +22,18 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
   url = {http://www.groklaw.net/article.php?story=20100815110101756},
 }
 
+@article{groklaw-pj,
+  title = {Why Groklaw?},
+  author = {Michael J. Jordan},
+  year = {2003},
+  month = {July},
+  url = {http://www.groklaw.net/staticpages/index.php?page=20031004190519196},
+  annote = "Linux Online interviewed Pamela Jones when Groklaw started.",
+}
+
 @misc{oracle-lawsuit,
   title = "{Oracle America Inc. v. Google Inc.}",
+  organization = {Oracle America Inc.},
   year = {2010},
   month = {August},
   url = {http://www.groklaw.net/pdf2/OrvGoogComplaint.pdf},
@@ -70,11 +41,13 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{dalvik,
   title = {Dalvik Virtual Machine},
+  organization = {DalvikVM.com},
   url = {http://www.dalvikvm.com/},
 }
 
 @misc{dalvik-bytecode,
   title = "{Bytecode for the Dalvik VM}",
+  organization = {Android Open Source Project},
   year = {2007},
   url = {http://www.netmite.com/android/mydroid/dalvik/docs/dalvik-bytecode.html},
 }
@@ -91,6 +64,7 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{android-sdk-building,
   title = {Building and Running},
+  organization = {Android Open Source Project},
   year = {2011},
   month = {April},
   url = {http://developer.android.com/guide/developing/building/index.html},
@@ -98,11 +72,17 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{oracle-buys-sun,
   title = "{Oracle wins U.S.~approval to buy Sun Microsystems}",
+  author = {Paul Thomasch and Jim Finkle},
+  year = {2009},
+  month = {August},
   url = {http://www.reuters.com/article/2009/08/20/sun-oracle-idUSN2053486920090820},
 }
 
 @misc{sun-open-sources-java,
   title = "{Sun Opens Java Source Code Under GPL}",
+  author = {Ed Oswald},
+  year = {2006},
+  month = {November},
   url = {http://www.betanews.com/article/Sun-Opens-Java-Source-Code-Under-GPL/1163439422},
 }
 
@@ -116,17 +96,21 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{hotspot,
   title = "{The HotSpot Group}",
+  organization = {Oracle Corporation},
+  year = {2011},
   url = {http://openjdk.java.net/groups/hotspot/},
 }
 
 @misc{apache-harmony,
   title = "{Apache Harmony}",
+  organization = {Apache Software Foundation},
   url = {http://harmony.apache.org/},
   annote = "The Apache Foundation's implementation of the Java VM specification.",
 }
 
 @misc{icedtea,
   title = "{IcedTea - Main Page}",
+  organization = {IcedTea project},
   url = {http://icedtea.classpath.org/wiki/Main_Page},
   annote = "Red Hat's free implementation of the Java VM specification.",
 }
@@ -139,7 +123,7 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 }
 
 @misc{secode,
-    author = "ACM",
+    organization = "ACM",
     title = "Software Engineering Code of Ethics and Professional Practice",
     month = "April",
     year = "2011",
@@ -149,37 +133,44 @@ the terms like handout and texTemp are the unique identifiers you use to cite th
 
 @misc{routed-around-ip,
   title = {Dalvik: how Google routed around Sun’s IP-based licensing restrictions on Java ME},
+  author = {Stefano Mazzocchi},
+  year = {2007},
+  month = {November},
   url = {http://www.betaversion.org/~stefano/linotype/news/110/},
   annote = "Although not cited directly, this article covered the licensing issues associated with Dalvik and is certainly an interesting read.",
 }
 
 @misc{dalvik-readme,
   title = {Dalvik README},
+  organization = {Android Open Source Project},
   url = {http://android.git.kernel.org/?p=platform/dalvik.git;a=blob;f=README.txt;h=2969180f3dd02b4ae69279d6f1f741812710183f;hb=HEAD},
   annote = "The README contains all of the credits and licensing information for the Dalvik project",
 }
 
 @misc{google-conduct,
   title = {Google Code of Conduct},
+  organization = {Google Inc.},
   url = {http://investor.google.com/corporate/code-of-conduct.html},
   annote = "Google's Code of Conduct was useful in showing that Google's ethics align with the SE Code",
 }
 
 @misc{apache-harmony-faq,
   title = {Apache Harmony --- Frequently Asked Questions},
+  organization = {Apache Software Foundation},
   url = {http://harmony.apache.org/faq.html},
   annote = "Has information about Apache Harmony",
 }
 
 @misc{apache-license,
-  title = {},
+  title = {Apache License, Version 2.0},
+  organization = {Apache Software Foundation},
   url = {http://www.apache.org/licenses/LICENSE-2.0.html},
   annote = "The Apache License 2.0 that Dalvik and Apache Harmony are released under.",
 }
 
 @misc{gpl-license,
   title = {GNU General Public License},
-  author = {Free Software Foundation, Inc.},
+  organization = {Free Software Foundation, Inc.},
   url = {http://www.gnu.org/licenses/gpl.html},
   annote = "The GNU GPL is used for the Java HotSpot VM.",
 }
