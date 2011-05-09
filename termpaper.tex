@@ -30,13 +30,13 @@ Dr. Clark Turner \vspace{10pt} \\
 \begin{abstract} % {{{1
 
 Google released Android on November 5, 2007 \cite{open-handset-alliance-ann} as
-a platform for consumer-level mobile devices, particularly phones.  Programmers
-can write applications for Android in Java.  These programs are run with Dalvik
---- a virtual machine that Google created.  In 2010, Oracle~America~Inc.\ filed
-a lawsuit against Google \cite{oracle-lawsuit}, claiming that Dalvik infringed
-on Oracle's intellectual property.  Is Google's use of the Dalvik virtual
+a platform for mobile phones. Programmers can write applications for Android in
+Java.  These programs are run with Dalvik --- a virtual machine that Google
+created.  In 2010, Oracle~America~Inc.\ filed a lawsuit against Google
+\cite{oracle-lawsuit}, claiming that Dalvik infringed on Oracle's intellectual
+property.  This raises the question, is Google's use of the Dalvik virtual
 machine in Android ethical?  Creating Dalvik was the only way to ethically meet
-performance, memory, and licensing restrictions, which aligns with the spirit of
+performance, memory, and licensing requirements, which aligns with the spirit of
 the ACM Software Engineering Code of Ethics and Professional Practice
 \cite{secode}.
 
@@ -49,8 +49,6 @@ of writing.)
 \newpage
 
 %Create a table of contents with all headings of level 3 and above.
-%http://en.wikibooks.org/wiki/LaTeX/Document_Structure#Table_of_contents has
-%info on customizing the table of contents
 \thispagestyle{empty}  %Remove page number from TOC
 \tableofcontents
 
@@ -74,15 +72,17 @@ of writing.)
     materials that allows programmers to write programs for a particular
     environment.
     \item[Open Source] If a software project released as open source, it means
-    that the software's source code can be obtained and reused legally (and
-    typically free of charge, but this is not necessarily the case for all open
-    source projects).
+    that the software's source code can be obtained and reused legally.  There
+    are many licenses that are considered open source, each with different
+    terms.
     \item[Apache License 2.0] An open source license that allows modification
     and reuse of the source code, even if the user don't redistribute the
     modified source code. \cite{apache-license}
     \item[GNU GPL License] GNU General Public License.  An open source license
     that allows modification and reuse of the source code, as long as users
     distribute the source code of their modifications. \cite{gpl-license}
+    \item[Library] A collection of code that is useful in many different
+    programs (e.g.\ text handling, graphics, etc.).
 \end{description}
 
 % section defs }}}1
@@ -92,43 +92,47 @@ of writing.)
 
 In late 2007, Google (along with a handful of other companies) announced the
 Open Handset Alliance \cite{open-handset-alliance-ann} along with the operating
-system they wished to promote: Android.  The Android operating system uses a
-modified Linux kernel --- an open source operating system --- along with a slew
-of other open source projects, in order to provide an open source operating
-system for phones.  Google provides a software development kit (SDK) that allows
-developers to write applications for Android in the Java programming language.
+system they wished to promote: Android.  The Android operating system is built
+entirely from open source projects.  Most of the projects Android uses are
+released under the Apache License 2.0, with the exception of the Linux kernel
+(which is released under the GNU GPL).  Google provides a software development
+kit (SDK) that allows developers to write applications for Android in the Java
+programming language.
 
 Java is a programming language created by James Gosling that was originally
 maintained by Sun Microsystems.  In 2006, Sun announced Java's release under the
 open source GNU GPL license. \cite{sun-open-sources-java} On August 20, 2009,
-the U.S.~Justice Department approved Oracle's deal to acquire Sun Microsystems,
-along with its intellectual property, including Java. \cite{oracle-buys-sun}
+the U.S.~Justice Department approved Oracle's deal to acquire Sun Microsystems
+and its intellectual property, including Java. \cite{oracle-buys-sun}
 
-Java does not get converted directly to CPU instructions --- in order to run
-Java code, one must use a virtual machine. The Java compiler produces a
-documented, well-defined set of standard bytecodes, known as the JavaVM
-specification. \cite[Chapter 4]{javavm-bytecode}  There are many different
-implementations of the JavaVM specification: HotSpot (Sun/Oracle's de facto
-implementation) \cite{hotspot}, Apache Harmony \cite{apache-harmony}, and Red
-Hat's IcedTea \cite{icedtea}, to name a few.  The developers of Android created
-a new virtual machine --- Dalvik.
+Many programming languages are converted from text directly into instructions
+that the CPU understands.  Java does not get converted directly to CPU
+instructions --- in order to run Java code, one must use a virtual machine.  A
+virtual machine guarantees that the same program will run on any CPU without
+modification.  The virtual machine must be written for the CPU, and then
+programs written for the virtual machine can run immediately.
 
-Dalvik executes bytecodes in a custom executable format \cite{dalvik-bytecode}
-that is different from Oracle's HotSpot virtual machine \cite{javavm-bytecode}.
-In order to fulfill the performance requirements and restrictions imposed by a
-phone's hardware, Dalvik uses a different architecture to execute code.  The
-Android SDK includes a program that converts a Java class file produced by
-Oracle's Java compiler into the Dalvik executable format.
-\cite{android-sdk-building}  In order to provide compatibility with the Java
-libraries, Dalvik includes portions of the Apache Harmony library.
-\cite{apache-harmony} \cite{dalvik-readme}  The Apache Harmony project is
-released under the Apache License 2.0 \cite{apache-license} which is ``preferred
-by many companies because such licenses make it possible to use open-source
-software code without having to turn proprietary enhancements back over to the
-open source software community.'' \cite{why-apache2-license}
+The Java compiler produces a documented, well-defined set of standard bytecodes,
+known as the JavaVM specification. \cite[Chapter 4]{javavm-bytecode}  There are
+many different implementations of the JavaVM specification: HotSpot
+(Sun/Oracle's de facto implementation) \cite{hotspot}, Apache Harmony
+\cite{apache-harmony}, and Red Hat's IcedTea \cite{icedtea}, to name a few.
+
+The developers of Android created a new virtual machine --- Dalvik.  Dalvik
+executes bytecodes in a format that is different from JavaVM in order to fulfill
+the performance requirements on mobile phones.  \cite{dalvik-bytecode}
+The Android~SDK includes a program, dex, that converts a Java bytecodes produced
+by Oracle's Java compiler into Dalvik bytecodes.  \cite{android-sdk-building}
+In order to provide compatibility with the Java libraries, Dalvik includes
+portions of the Apache~Harmony library.  \cite{apache-harmony}
+\cite{dalvik-readme}  Apache~Harmony and Dalvik are released under the Apache
+License 2.0 \cite{apache-license} which is ``preferred by many companies because
+such licenses make it possible to use open-source software code without having
+to turn proprietary enhancements back over to the open source software
+community.'' \cite{why-apache2-license}
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
-infringes upon their intellectual property. \cite{oracle-lawsuit}
+infringes upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
 
 % end facts }}}1
 
@@ -144,16 +148,17 @@ Is Google's use of the Dalvik virtual machine in Android ethical?
 \subsection{Oracle's Claim} % {{{2
 \label{sub:args_oracle}
 
-Oracle's claim is that ``as a direct and proximate result of Google’s direct
+Oracle's claim is that ``as a direct and proximate result of Google's direct
 and indirect willful copyright infringement, Oracle America has suffered, and
 will continue to suffer, monetary loss to its business, reputation, and
 goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
 
-The first claim being made is that Google is infringing on Oracle's copyright
-(which would be unethical).  The second claim is that by infringing, Google is
-harming the public by causing losses to Oracle's employees and investors.
-Either of these actions would be unethical, and the first would certainly be
-illegal.
+The first claim being made is that Google is infringing on Oracle's copyright.
+The second claim is that by infringing, Google is harming the public by causing
+losses to Oracle's employees and investors.  Either of these actions would be
+unethical, and the first would certainly be illegal.
+
+% TODO: Discuss specific patents: JIT, Access to Resources, etc.
 
 % sub args_oracle }}}2
 
@@ -168,9 +173,10 @@ lawsuit, saying: \cite{groklaw}
 \begin{quotation}
 I expect Google would say Dalvik was an alternative to Java, not a version of
 it. If indeed none of the Sun employees that ended up at Google worked on this,
-and it's built from the ground up without any Sun technology or IP, on what
-basis can Oracle prevail? Perhaps Oracle figures no room at Google is clean
-enough. And of course clean room means nothing when it comes to patents.
+and it's built from the ground up without any Sun technology or [Intellectual
+Property], on what basis can Oracle prevail? Perhaps Oracle figures no room at
+Google is clean enough. And of course clean room means nothing when it comes to
+patents.
 \end{quotation}
 
 Jones's argument is that if Google has not used any of Oracle's software to
@@ -213,7 +219,7 @@ important to provide an objective set of standards that are well-accepted for
 the basis of this analysis.  At first glance, using Google's Code of Conduct
 \cite{google-conduct} seems like a reasonable choice, and many parts of Google's
 Code of Conduct are applicable here.  However, this analysis will use the ACM
-Software Engineering Code of Ethics and Professional Practice \cite{secode} as
+Software Engineering Code of Ethics and Professional Practice \cite{secode}, as
 it is non-partial and includes more restrictions than Google's Code of Conduct
 does.
 
@@ -226,25 +232,36 @@ if there was a higher principle that it conflicts with.
 \subsection{Requirements} % {{{2
 \label{sub:requirements}
 
-As part of a software engineer's duty to the product, a software engineer should
+As part of a software engineer's duty to the public, a software engineer should
 ``approve software only if they have a well-founded belief that it is safe,
 meets specifications, passes appropriate tests, and does not diminish quality of
-life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  As
-such, Dalvik must meet the requirements
+life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode} If
+Dalvik does not meet its requirements, then it is unethical.
+
+Android's stated goal is to ``give consumers a far better user experience than
+much of what is available on today's mobile platforms'' and ``provide developers
+a new level of openness that enables them to work more collaboratively'' on
+``thousands of different phone models.'' \cite{open-handset-alliance-ann}
+Android must be open source, it must work similarly on a variety of phones, and
+must provide an acceptable user experience.
 
 \subsubsection{Licensing} % {{{3
 \label{sub:licensing}
 
+One of the requirements of Android was to provide a common platform for a wide
+variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
+common platform is to encourage widespread adoption.  Companies prefer the
+Apache License 2.0 because of its less restrictive nature than the GPL.
+\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
+under the Apache License 2.0.
+
 Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
-it uses portions of the Apache~Harmony libraries.  Apache~Harmony is released
-under Apache~License~2.0 --- a software license that grants rights to
-redistribute software, as long as distributors preserve the copyright notices
-and note any modifications made.  \cite{apache-license} Google is then obligated
-to distribute Dalvik under a license that has terms compatible with the
-Apache~License~2.0.  Google distributes Dalvik under the same Apache~License~2.0
-and credits Harmony in the Dalvik README.  \cite{dalvik-readme}  This follows
-the Software Engineering Code principle of ``[crediting] fully the work of
-others and [refraining] from taking undue credit.'' \cite[\S 7.03]{secode}
+it uses portions of the Apache~Harmony libraries.  In order for this to be
+ethical, the Software Engineering Code dictates that software engineers ought to
+``credit fully the work of others and refrain from taking undue credit.''
+\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
+Apache~License~2.0 and credits Harmony in the Dalvik README.
+\cite{dalvik-readme}  The principle of giving credit is upheld.
 
 Section 2.02 of the Software Engineering Code states that software engineers
 should ``not knowingly use software that is obtained or retained either
@@ -252,29 +269,29 @@ illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
 libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
 executable format that is distinct from JavaVM.  Google created Dalvik and then
 used Apache~Harmony to supplement its functionality, obeying all the terms of
-the Apache~License~2.0.  All software was obtained legally, so that principle
-has been upheld.
-
-One of the requirements of Android was to provide a common platform for a wide
-variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
-common platform is to encourage widespread adoption.  Companies prefer the
-Apache License 2.0 because of its less restrictive nature than the GPL.
-\cite{why-apache2-license} By using the Apache License 2.0, Google can release
-Android under an open source license without illegally using Oracle's software.
+the Apache~License~2.0.  All software was either created at Google or obtained
+legally.
 
 % subsubsection licensing }}}3
 
-\subsubsection{Quality} % {{{3
+\subsubsection{Why a Virtual Machine?} % {{{3
+\label{ssub:why-vm}
+
+(TODO: A virtual machine is necessary to provide portability and a consistent
+user experience.)
+
+% subsubsection why-vm }}}3
+
+\subsubsection{User Experience} % {{{3
 \label{ssub:quality}
 
-Furthermore, Google's creation of Dalvik upholds Section 3.01 of the Software
-Engineering Code \cite{secode}, specifically, ``striv[ing] for high quality,
-acceptable cost, and a reasonable schedule'' in a product.  Dalvik would not
-have been completed in a reasonable amount of time without using portions of
-Apache Harmony nor would it be as high quality if it had used Oracle's HotSpot.
-HotSpot doesn't fit within the performance characteristics of lower-end phones.
-There are other Java virtual machines that could have been used, but none met
-the goals of the Android project.
+The Software Engineering Code \cite{secode} encourages software engineers to
+``strive for high quality, acceptable cost, and a reasonable schedule'' in a
+product.  Dalvik would not have been completed in a reasonable amount of time
+without using portions of Apache Harmony, nor would it be as high quality if it
+had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
+characteristics of lower-end phones.  There are other Java virtual machines that
+could have been used, but none met the goals of the Android project.
 
 % subsubsection quality }}}3
 
@@ -286,11 +303,12 @@ the goals of the Android project.
 \subsubsection{The dex Program} % {{{3
 \label{ssub:dex}
 
-dex, a part of the Android SDK, is a separate program that runs on Java
-bytecodes and converts them to Dalvik bytecodes.  Converters could be
-written that convert other programming languages to the Dalvik executable
-format; there is no dependency on Java.  Dalvik just happens to include
-libraries that are similar to those in the Java standard library.
+dex, a part of the Android SDK, is a separate program that converts Java
+bytecodes to Dalvik bytecodes.  Converters could be written that convert other
+programming languages to the Dalvik executable format; there is no dependency on
+Java.  Dalvik includes libraries that are similar to those in the Java standard
+library, but creating an API that's similar to another is not an unethical act,
+as long as the underlying implementations differ.
 
 % subsubsection dex }}}3
 
@@ -312,7 +330,7 @@ encouraging use of Oracle's products.)
 
 The performance, power, and licensing requirements that Google had for Android
 would not have been met by an existing virtual machine, so creating Dalvik was
-the only ethical choice that Google could be made. 
+the only ethical choice that Google could make.
 
 % section conclusion }}}1
 
