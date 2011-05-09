@@ -121,15 +121,15 @@ many different implementations of the JavaVM specification: HotSpot
 The developers of Android created a new virtual machine --- Dalvik.  Dalvik
 executes bytecodes in a format that is different from JavaVM in order to fulfill
 the performance requirements on mobile phones.  \cite{dalvik-bytecode}
-The Android~SDK includes a program, dex, that converts a Java bytecodes produced
-by Oracle's Java compiler into Dalvik bytecodes.  \cite{android-sdk-building}
-In order to provide compatibility with the Java libraries, Dalvik includes
-portions of the Apache~Harmony library.  \cite{apache-harmony}
-\cite{dalvik-readme}  Apache~Harmony and Dalvik are released under the Apache
-License 2.0 \cite{apache-license} which is ``preferred by many companies because
-such licenses make it possible to use open-source software code without having
-to turn proprietary enhancements back over to the open source software
-community.'' \cite{why-apache2-license}
+\cite{dalvik-vm-arch} The Android~SDK includes a program, dex, that converts a
+Java bytecodes produced by Oracle's Java compiler into Dalvik bytecodes.
+\cite{android-sdk-building} In order to provide compatibility with the Java
+libraries, Dalvik includes portions of the Apache~Harmony library.
+\cite{apache-harmony} \cite{dalvik-readme}  Apache~Harmony and Dalvik are
+released under the Apache License 2.0 \cite{apache-license} which is ``preferred
+by many companies because such licenses make it possible to use open-source
+software code without having to turn proprietary enhancements back over to the
+open source software community.'' \cite{why-apache2-license}
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
 infringes upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
@@ -290,8 +290,9 @@ The Software Engineering Code \cite{secode} encourages software engineers to
 product.  Dalvik would not have been completed in a reasonable amount of time
 without using portions of Apache Harmony, nor would it be as high quality if it
 had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
-characteristics of lower-end phones.  There are other Java virtual machines that
-could have been used, but none met the goals of the Android project.
+characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
+virtual machines that could have been used, but none met the goals of the
+Android project.
 
 % subsubsection quality }}}3
 
