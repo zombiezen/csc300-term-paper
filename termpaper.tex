@@ -121,7 +121,7 @@ many different implementations of the JavaVM specification: HotSpot
 The developers of Android created a new virtual machine --- Dalvik.  Dalvik
 executes bytecodes in a format that is different from JavaVM in order to fulfill
 the performance requirements on mobile phones.  \cite{dalvik-bytecode}
-\cite{dalvik-vm-arch} The Android~SDK includes a program, dex, that converts a
+\cite{dalvik-vm-arch} The Android~SDK includes a program, dx, that converts a
 Java bytecodes produced by Oracle's Java compiler into Dalvik bytecodes.
 \cite{android-sdk-building} In order to provide compatibility with the Java
 libraries, Dalvik includes portions of the Apache~Harmony library.
@@ -301,15 +301,16 @@ Android project.
 \subsection{The Use of Java} % {{{2
 \label{sub:java}
 
-\subsubsection{The dex Program} % {{{3
+\subsubsection{The dx Program} % {{{3
 \label{ssub:dex}
 
-dex, a part of the Android SDK, is a separate program that converts Java
-bytecodes to Dalvik bytecodes.  Converters could be written that convert other
-programming languages to the Dalvik executable format; there is no dependency on
-Java.  Dalvik includes libraries that are similar to those in the Java standard
-library, but creating an API that's similar to another is not an unethical act,
-as long as the underlying implementations differ.
+dx, a part of the Android SDK, is a separate program that converts Java
+bytecodes to Dalvik bytecodes (the Dalvik executable format, dex).  Converters
+could be written that convert other programming languages to the Dalvik
+executable format; there is no dependency on Java.  Dalvik includes libraries
+that are similar to those in the Java standard library, but creating an API
+that's similar to another is not an unethical act, as long as the underlying
+implementations differ.
 
 % subsubsection dex }}}3
 
