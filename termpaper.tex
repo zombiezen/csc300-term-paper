@@ -64,7 +64,7 @@ of writing.)
 
 \begin{description}
     \item[Virtual Machine] A program that runs instructions that are not
-    natively understood by the processor.
+    natively understood by a CPU.
     \item[Bytecode] An instruction understood by a virtual machine.
     \item[JavaVM] The set of bytecodes that is documented by ``The Java Virtual
     Machine Specification''. \cite{javavm-bytecode}
@@ -109,8 +109,8 @@ Many programming languages are converted from text directly into instructions
 that the CPU understands.  Java does not get converted directly to CPU
 instructions --- in order to run Java code, one must use a virtual machine.  A
 virtual machine guarantees that the same program will run on any CPU without
-modification.  The virtual machine must be written for the CPU, and then
-programs written for the virtual machine can run immediately.
+modification.  Once a virtual machine has been written for a particular CPU
+architecture, it can execute programs written for the virtual machine.
 
 The Java compiler produces a documented, well-defined set of standard bytecodes,
 known as the JavaVM specification. \cite[Chapter 4]{javavm-bytecode}  There are
