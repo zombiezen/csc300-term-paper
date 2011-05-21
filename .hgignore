@@ -1,3 +1,4 @@
+syntax:glob
 *.aux
 *.bbl
 *.blg
