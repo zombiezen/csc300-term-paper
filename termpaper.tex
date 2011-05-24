@@ -145,6 +145,20 @@ unethical, and the first would certainly be illegal.
 
 % sub args_oracle }}}2
 
+\subsection{Copied Code} % {{{2
+\label{sub:fosspatents}
+
+In January 2011, Engadget (a popular technology news website), posted an article
+indicating that Google may be copying portions of Oracle's code in the Android
+source code repository.  \cite{android-copies-java-code}  Florian Mueller, the
+author of the blog ``FOSS Patents'', originally discovered the similarities in
+the files.  \cite{fosspatents}  Ars Technica ran an article soon after claiming
+that SONiVOX, a third-party company, had accidentally committed the offending
+changes. \cite{ars-tech-copying} These observers claim that Google is unethical
+because Google directly copied source code from Oracle.
+
+% subsection fosspatents }}}2
+
 \subsection{Groklaw's Response} % {{{2
 \label{sub:args_groklaw}
 
@@ -167,20 +181,6 @@ build Dalvik, then there's no violation of intellectual property, and thus no
 unethical behavior.
 
 % sub args_groklaw }}}2
-
-\subsection{Copied Code} % {{{2
-\label{sub:fosspatents}
-
-In January 2011, Engadget (a popular technology news website), posted an article
-indicating that Google may be copying portions of Oracle's code in the Android
-source code repository.  \cite{android-copies-java-code}  Florian Mueller, the
-author of the blog ``FOSS Patents'', originally discovered the similarities in
-the files.  \cite{fosspatents}  Ars Technica ran an article soon after claiming
-that SONiVOX, a third-party company, had accidentally committed the offending
-changes. \cite{ars-tech-copying} These observers claim that Google is unethical
-because Google directly copied source code from Oracle.
-
-% subsection fosspatents }}}2
 
 % end args }}}1
 
@@ -216,16 +216,17 @@ whether it follows principles.
 % subsection criteria }}}2
 
 \subsection{Duty to the Public} % {{{2
-\label{sub:product}
+\label{sub:public}
 
 As part of a software engineer's duty to the public, a software engineer should
 ``approve software only if they have a well-founded belief that it is safe,
 meets specifications, passes appropriate tests, and does not diminish quality of
-life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  There
-have been no major complaints about Android's safety and testing, and the
-possibility of its damage is limited because it operates on consumer-level
-mobile devices.  The relevant concerns here are the conformance to
-specifications, the effect on quality of life, and the effect on privacy.
+life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  The
+possibility of its damage is limited because Android operates on consumer-level
+mobile devices.  No claim has been made that Android is not well-tested and it
+comes from the Linux kernel, a well-tested piece of software.  Therefore, the
+only relevant concerns here are the conformance to specifications, the effect on
+quality of life, and the effect on privacy.
 
 \subsubsection{Requirements} % {{{3
 \label{ssub:requirements}
@@ -244,10 +245,25 @@ design goals for Android.  The main requirements are: \cite{open-handset-allianc
     \item Portability
 \end{itemize}
 
+Promoting a good user experience by definition is improving quality of life for
+the user, so that is an ethical goal.  An open operating system is (arguably)
+neutral from the user's point of view, but it allows companies to share code:
+Motorola can make bug fixes that assist Samsung, and vice versa, which
+contributes to the user experience (i.e. less unexpected behavior).  Portability
+means that the same software, which is well-tested and mature, can be used on
+many phones and still be useful.  These requirements are worthy and ethical, but let's
+see how they apply to the Software Engineering Code of Ethics.
+
 % subsubsection requirements }}}3
 
 \subsubsection{Why a Virtual Machine?} % {{{3
 \label{ssub:why-vm}
+
+In considering these requirements, none of these seems to mandate the use of a
+virtual machine.  Indeed, Apple's competing iOS compiles directly to machine
+code, runs on devices with different ARM processors, and provides a good user
+experience.  The open licensing requirement can be fulfilled in any way.  Why
+was Dalvik chosen as the solution for the requirements?
 
 One of Android's goals is to provide portability: an application should be able
 to run on a variety of devices.  Each phone may have a slightly different
@@ -260,24 +276,64 @@ development.  Because a virtual machine has more control over the execution
 environment, a virtual machine can more aggressively collect unused memory.  The
 virtual machine can also track all accesses to resources, so a virtual machine
 can enforce that a program only has access to the APIs it requested permission
-for.  Dalvik uses these features to make Android secure and memory efficient ---
-important qualities for maintaining user privacy and user experience.
+for (this is discussed in more detail later).  Dalvik uses these features to
+make Android secure and memory efficient --- important qualities for maintaining
+user privacy and user experience.
 
 % subsubsection why-vm }}}3
 
-\subsubsection{User Experience} % {{{3
+\subsubsection{Quality of Life} % {{{3
 \label{ssub:quality}
 
-The Software Engineering Code \cite{secode} encourages software engineers to
-``strive for high quality, acceptable cost, and a reasonable schedule'' in a
-product.  Dalvik would not have been completed in a reasonable amount of time
-without using portions of Apache Harmony, nor would it be as high quality if it
-had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
-characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
-virtual machines that could have been used, but none met the goals of the
-Android project.
+The first goal of the Android platform is to provide a good user experience.
+This encourages the quality of life aspect of the Software Engineering Code of
+Ethics by making the user's life better by using the phone.  Also, because
+Android is portable and runs on many phones, users don't have to learn a new
+interface every time they get a new phone (which is a rather frequent occurrence
+in the United States).  Although the primary user is the general public,
+application developers are also a large part of the audience of Android.  An
+application can be written once and deployed on many different phones with
+radically different hardware specifications.  When the first Android tablets
+were introduced, most applications ran correctly on the first day because the
+virtual machine could handle the better processor and would abstract the
+hardware.  The end-user benefits from this abstraction as well.  Applications
+behave nicely on their phone: resources are managed, the process is secure, and
+the application is guaranteed to run.
 
 % subsubsection quality }}}3
+
+\subsubsection{Privacy and Security} % {{{3
+\label{ssub:privacy}
+
+The Software Engineering Code of Ethics dictates that software should not
+adversely affect users' privacy.  Dalvik doesn't directly work with private
+data, but it runs other programs that do.  In this case, Dalvik should promote
+good practices that aide privacy.  This is Dalvik's security layer.
+
+Mobile phones are a significant part of people's lives and contains personal
+information such as contacts and browsing history.  With a proprietary phone
+operating system, it is difficult for security experts and privacy enthusiasts
+to see how their data is being used.  Providing an open source platform for
+mobile phones encourages user privacy by allowing external audits to ensure that
+the operating system is not transmitting information without consent.
+
+Whenever a user installs a new application from the Android Market, he or she is
+clearly presented with the list of permissions that application is requesting.
+This is part of Dalvik's runtime environment: applications must declare what
+actions they are going to try to do, or else Dalvik terminates the program.
+Dalvik controls access to private information.
+
+This would be difficult (although not impossible) to do without a virtual
+machine.  Natively compiled code uses the CPU directly, so there would be more
+burden on the underlying operating system to implement the security features,
+which are usually rather abstract.  For example (taken from the Android
+Developer Documentation), a picture viewing program can't ordinarily access data
+from the email client, but if the user wants to open an attachment, the email
+client can temporarily grant access to the corresponding image, and nothing
+more.  By controlling the code executing in user space, Dalvik can enforce much
+more fine-grained control over security, thus protecting its user's privacy.
+
+% subsubsection privacy }}}3
 
 \subsubsection{Effect on the Public} % {{{3
 \label{ssub:public-effect}
@@ -287,19 +343,45 @@ users and the public.  Since the primary user of Android is the public, this is
 a significant duty for Google.  The requirements (and the product) should
 provide utility to the public in order to be ethical.
 
-Mobile phones are a significant part of people's lives and contains personal
-information such as contacts and browsing history.  With a proprietary phone
-operating system, it is difficult for security experts and privacy enthusiasts
-to see how their data is being used.  Providing an open source platform for
-mobile phones encourages user privacy by allowing external audits to ensure that
-the operating system is not transmitting information without consent.
+This idea of not diminishing quality of life relates to the ethical theory of
+utilitarianism: that which maximizes utility (or benefit) over a group of people
+is what is good.  It provides a (more or less) objective basis for ethics, and
+it is a higher principle that also applies outside of software engineering.  To
+be consistent with utilitarianism, Android must provide a net positive (or
+neutral) effect on the total utility.  Taking away utility would be diminishing
+quality of life.
+
+One of Android's main design goals is user experience: ensuring that a user can
+get tasks done in Android effectively and easily.  That user experience is
+consistent across many phones (part of the portability), which will make
 
 % subsubsection public-effect }}}3
 
-% subsection product }}}2
+\subsubsection{Summary} % {{{3
+\label{ssub:public-summary}
 
-\subsection{Licensing} % {{{3
+An important part of the Software Engineering Code of Ethics is ensuring that
+software contributes to the public good.  Android's requirements are designed to
+help the public.  Using Dalvik promotes all of the project's requirements.
+Dalvik increases security, which keeps users in control of what data each
+program is allowed to access.  Because of this, Dalvik fulfills Section 1.03 of
+the Software Engineering Code of Ethics.
+
+% subsubsection public-summary }}}3
+
+% subsection public }}}2
+
+\subsection{Licensing} % {{{2
 \label{sub:licensing}
+
+Section 2.02 of the Software Engineering Code states that software engineers
+should ``not knowingly use software that is obtained or retained either
+illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
+libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
+executable format that is distinct from JavaVM.  Google created Dalvik and then
+used Apache~Harmony to supplement its functionality, obeying all the terms of
+the Apache~License~2.0.  All software was either created at Google or obtained
+legally.
 
 One of the requirements of Android is to provide a common platform for a wide
 variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
@@ -316,16 +398,7 @@ ethical, the Software Engineering Code dictates that software engineers ought to
 Apache~License~2.0 and credits Harmony in the Dalvik README.
 \cite{dalvik-readme}  The principle of giving credit is upheld.
 
-Section 2.02 of the Software Engineering Code states that software engineers
-should ``not knowingly use software that is obtained or retained either
-illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
-libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
-executable format that is distinct from JavaVM.  Google created Dalvik and then
-used Apache~Harmony to supplement its functionality, obeying all the terms of
-the Apache~License~2.0.  All software was either created at Google or obtained
-legally.
-
-% subsection licensing }}}3
+% subsection licensing }}}2
 
 \subsection{The Use of Java} % {{{2
 \label{sub:java}
@@ -334,6 +407,16 @@ The Android SDK provides a modified Eclipse environment for developing Android
 applications using the Java programming language.  Java is a well-developed
 language that is taught at many universities, including Cal Poly, so its use
 reduces the amount of work for a developer to create an Android application.
+
+The Software Engineering Code \cite{secode} encourages software engineers to
+``strive for high quality, acceptable cost, and a reasonable schedule'' in a
+product.  Dalvik would not have been completed in a reasonable amount of time
+without using portions of Apache Harmony, nor would it be as high quality if it
+had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
+characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
+virtual machines that could have been used, but none met the goals of the
+Android project.
+
 
 \subsubsection{The dx Program} % {{{3
 \label{ssub:dex}
