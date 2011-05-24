@@ -215,16 +215,28 @@ whether it follows principles.
 
 % subsection criteria }}}2
 
-\subsection{Requirements} % {{{2
-\label{sub:requirements}
+\subsection{Duty to the Public} % {{{2
+\label{sub:product}
 
 As part of a software engineer's duty to the public, a software engineer should
 ``approve software only if they have a well-founded belief that it is safe,
 meets specifications, passes appropriate tests, and does not diminish quality of
-life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode} If
-Dalvik does not meet its requirements, then it is unethical.
+life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  There
+have been no major complaints about Android's safety and testing, and the
+possibility of its damage is limited because it operates on consumer-level
+mobile devices.  The relevant concerns here are the conformance to
+specifications, the effect on quality of life, and the effect on privacy.
 
-Android's requirements are: \cite{open-handset-alliance-ann}
+\subsubsection{Requirements} % {{{3
+\label{ssub:requirements}
+
+The specification of a software product includes the requirements (goals and
+restrictions) and the details of how to meet those requirements (design
+documents and user documentation).  If Dalvik does not meet its requirements,
+then it does not follow its specification, and therefore it is unethical.
+
+When the Open Handset Alliance announced Android, they cited three major
+design goals for Android.  The main requirements are: \cite{open-handset-alliance-ann}
 
 \begin{itemize}
     \item User Experience
@@ -232,51 +244,7 @@ Android's requirements are: \cite{open-handset-alliance-ann}
     \item Portability
 \end{itemize}
 
-\subsubsection{Effect on the Public} % {{{3
-\label{ssub:public-effect}
-
-Two of the duties the Software Engineering Code of Ethics identifies are the
-users and the public.  Since the primary user of Android is the public, this is
-a significant duty for Google.  The requirements (and the product) should
-provide utility to the public in order to be ethical.
-
-Mobile phones are a significant part of people's lives and contains personal
-information such as contacts and browsing history.  With a proprietary phone
-operating system, it is difficult for security experts and privacy enthusiasts
-to see how their data is being used.  Providing an open source platform for
-mobile phones encourages user privacy by allowing external audits to ensure that
-the operating system is not transmitting information without consent.
-
-% subsubsection public-effect }}}3
-
-\subsubsection{Licensing} % {{{3
-\label{sub:licensing}
-
-One of the requirements of Android is to provide a common platform for a wide
-variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
-common platform is to encourage widespread adoption.  Companies prefer the
-Apache License 2.0 because of its less restrictive nature than the GPL.
-\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
-under the Apache License 2.0.
-
-Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
-it uses portions of the Apache~Harmony libraries.  In order for this to be
-ethical, the Software Engineering Code dictates that software engineers ought to
-``credit fully the work of others and refrain from taking undue credit.''
-\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
-Apache~License~2.0 and credits Harmony in the Dalvik README.
-\cite{dalvik-readme}  The principle of giving credit is upheld.
-
-Section 2.02 of the Software Engineering Code states that software engineers
-should ``not knowingly use software that is obtained or retained either
-illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
-libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
-executable format that is distinct from JavaVM.  Google created Dalvik and then
-used Apache~Harmony to supplement its functionality, obeying all the terms of
-the Apache~License~2.0.  All software was either created at Google or obtained
-legally.
-
-% subsubsection licensing }}}3
+% subsubsection requirements }}}3
 
 \subsubsection{Why a Virtual Machine?} % {{{3
 \label{ssub:why-vm}
@@ -311,7 +279,53 @@ Android project.
 
 % subsubsection quality }}}3
 
-% subsection requirements }}}2
+\subsubsection{Effect on the Public} % {{{3
+\label{ssub:public-effect}
+
+Two of the duties the Software Engineering Code of Ethics identifies are the
+users and the public.  Since the primary user of Android is the public, this is
+a significant duty for Google.  The requirements (and the product) should
+provide utility to the public in order to be ethical.
+
+Mobile phones are a significant part of people's lives and contains personal
+information such as contacts and browsing history.  With a proprietary phone
+operating system, it is difficult for security experts and privacy enthusiasts
+to see how their data is being used.  Providing an open source platform for
+mobile phones encourages user privacy by allowing external audits to ensure that
+the operating system is not transmitting information without consent.
+
+% subsubsection public-effect }}}3
+
+% subsection product }}}2
+
+\subsection{Licensing} % {{{3
+\label{sub:licensing}
+
+One of the requirements of Android is to provide a common platform for a wide
+variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
+common platform is to encourage widespread adoption.  Companies prefer the
+Apache License 2.0 because of its less restrictive nature than the GPL.
+\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
+under the Apache License 2.0.
+
+Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
+it uses portions of the Apache~Harmony libraries.  In order for this to be
+ethical, the Software Engineering Code dictates that software engineers ought to
+``credit fully the work of others and refrain from taking undue credit.''
+\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
+Apache~License~2.0 and credits Harmony in the Dalvik README.
+\cite{dalvik-readme}  The principle of giving credit is upheld.
+
+Section 2.02 of the Software Engineering Code states that software engineers
+should ``not knowingly use software that is obtained or retained either
+illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
+libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
+executable format that is distinct from JavaVM.  Google created Dalvik and then
+used Apache~Harmony to supplement its functionality, obeying all the terms of
+the Apache~License~2.0.  All software was either created at Google or obtained
+legally.
+
+% subsection licensing }}}3
 
 \subsection{The Use of Java} % {{{2
 \label{sub:java}
