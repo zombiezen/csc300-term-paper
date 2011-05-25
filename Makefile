@@ -10,6 +10,7 @@ NAME=termpaper
 
 TEXFILES=\
 	$(NAME).tex\
+	glossary.tex\
 
 BIBFILES=\
 	$(NAME).bib\
@@ -25,19 +26,25 @@ pdf: $(NAME).pdf
 
 %.pdf: $(TEXFILES) $(BIBFILES)
 	@echo "--- LaTeX"
-	@$(PDFLATEX) $(TEXFILES)
+	@$(PDFLATEX) $(NAME)
 	@echo
 	
 	@echo "--- BibTeX"
 	@$(BIBTEX) $(NAME)
 	@echo
 	
+	@echo "--- Glossary"
+	@makeglossaries $(NAME)
+	@echo
+	
 	@echo "--- Running LaTeX until complete"
-	@$(PDFLATEX) $(TEXFILES)
-	@$(PDFLATEX) $(TEXFILES)
-	@$(PDFLATEX) $(TEXFILES)
+	@$(PDFLATEX) $(NAME)
+	@$(PDFLATEX) $(NAME)
+	@$(PDFLATEX) $(NAME)
 
 clean:
-	rm -f $(NAME).pdf $(NAME).log $(NAME).aux *.bbl *.blg *.out *.toc $(NAME).synctex.gz
+	rm -f *.log *.aux *.bbl *.blg *.out *.toc *.synctex.gz
+	rm -f *.glg *.glo *.gls *.ist
+	rm -f *.pdf
 
 .PHONY: all pdf clean

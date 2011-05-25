@@ -6,9 +6,11 @@
 \documentclass[11pt]{article}
 
 \usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[toc,numberedsection=autolabel]{glossaries}
 \usepackage{multicol}
 \usepackage{setspace}
-\usepackage{url}
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
@@ -23,6 +25,9 @@
 \usepackage{geometry} % to change the page dimensions
 \geometry{letterpaper}
 
+\loadglsentries{glossary}
+\renewcommand{\glsdisplayfirst}[4]{\textbf{#1#4}}
+\makeglossaries
 
 \begin{document}
 
@@ -76,42 +81,42 @@ In late 2007, Google (along with a handful of other companies) announced the
 Open Handset Alliance \cite{open-handset-alliance-ann} along with the operating
 system it wished to promote: Android.  The Android operating system is built
 entirely from open source projects.  Most of the projects Android uses are
-released under the Apache License 2.0, with the exception of the Linux kernel
-(which is released under the GNU GPL).  Google provides a software development
-kit (SDK) that allows developers to write applications for Android in the Java
-programming language.
+released under the \gls{apl}, with the exception of the Linux kernel (which is
+released under the \gls{gpl}).  Google provides a \gls{sdk} that allows
+developers to write applications for Android in the Java programming language.
 
 Java is a programming language created by James Gosling that was originally
 maintained by Sun Microsystems.  In 2006, Sun announced Java's release under the
-open source GNU GPL license. \cite{sun-open-sources-java} On August 20, 2009,
+open source \gls{gpl} license. \cite{sun-open-sources-java} On August 20, 2009,
 the U.S.~Justice Department approved Oracle's deal to acquire Sun Microsystems
 and its intellectual property, including Java. \cite{oracle-buys-sun}
 
 Many programming languages are converted from text directly into instructions
 that the CPU understands.  Java does not get converted directly to CPU
-instructions --- in order to run Java code, one must use a virtual machine.  A
-virtual machine guarantees that the same program will run on any CPU without
-modification.  Once a virtual machine has been written for a particular CPU
-architecture, it can execute programs written for the virtual machine.
+instructions --- in order to run Java code, one must use a \gls{vm}.  A \gls{vm}
+guarantees that the same program will run on any CPU without modification.  Once
+a \gls{vm} has been written for a particular CPU architecture, it can execute
+programs written for the \gls{vm}.
 
-The Java compiler produces a documented, well-defined set of standard bytecodes,
-known as the JavaVM specification. \cite[Chapter 4]{javavm-bytecode}  There are
-many different implementations of the JavaVM specification: HotSpot
-(Sun/Oracle's de facto implementation) \cite{hotspot}, Apache Harmony
-\cite{apache-harmony}, and Red Hat's IcedTea \cite{icedtea}, to name a few.
+The Java compiler produces a documented, well-defined set of standard
+\glspl{bytecode}, known as the \gls{javavm}[ specification]. \cite[Chapter
+4]{javavm-bytecode}  There are many different implementations of the
+\gls{javavm} specification: HotSpot (Sun/Oracle's de facto implementation)
+\cite{hotspot}, Apache Harmony \cite{apache-harmony}, and Red Hat's IcedTea
+\cite{icedtea}, to name a few.
 
-The developers of Android created a new virtual machine --- Dalvik.  Dalvik
-executes bytecodes in a format that is different from JavaVM in order to fulfill
-the performance requirements on mobile phones.  \cite{dalvik-bytecode}
-\cite{dalvik-vm-arch} The Android~SDK includes a program, dx, that converts
-Java bytecodes produced by Oracle's Java compiler into Dalvik bytecodes.
-\cite{android-sdk-building} In order to provide compatibility with the Java
-libraries, Dalvik includes portions of the Apache~Harmony library.
+The developers of Android created a new \gls{vm} --- Dalvik.  Dalvik executes
+\glspl{bytecode} in a format that is different from \gls{javavm} in order to
+fulfill the performance requirements on mobile phones.  \cite{dalvik-bytecode}
+\cite{dalvik-vm-arch} The Android \gls{sdk} includes a program, dx, that
+converts Java \glspl{bytecode} produced by Oracle's Java compiler into Dalvik
+\glspl{bytecode}.  \cite{android-sdk-building} In order to provide compatibility
+with the Java libraries, Dalvik includes portions of the Apache~Harmony library.
 \cite{apache-harmony} \cite{dalvik-readme}  Apache~Harmony and Dalvik are
-released under the Apache License 2.0 \cite{apache-license} which is ``preferred
-by many companies because such licenses make it possible to use open-source
-software code without having to turn proprietary enhancements back over to the
-open source software community.'' \cite{why-apache2-license}
+released under the \gls{apl} \cite{apache-license} which is ``preferred by many
+companies because such licenses make it possible to use open-source software
+code without having to turn proprietary enhancements back over to the open
+source software community.'' \cite{why-apache2-license}
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
 infringes upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
@@ -121,7 +126,7 @@ infringes upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
 \section{Research Question} % {{{1
 \label{sec:question}
 
-Is Google's use of the Dalvik virtual machine in Android ethical?
+Is Google's use of the Dalvik \gls{vm} in Android ethical?
 
 If Google is unethical, then their partners in the Open Handset Alliance are
 unethical.  The Android platform is used on a wide variety of phones currently
@@ -129,9 +134,9 @@ on the market distributed by various different companies.  All of these
 companies would be using unethically obtained software.  This would be
 disastrous for many companies and would harm the public.  Furthermore, the
 question also has implications beyond Android.  If Google is unethical in using
-Dalvik, other creators of compatible virtual machines could be just as
-unethical.  This would include Red Hat and the Apache Software Foundation ---
-two high-profile open~source developers.
+Dalvik, other creators of compatible \glspl{vm} could be just as unethical.
+This would include Red Hat and the Apache Software Foundation --- two
+high-profile open~source developers.
 
 % end question }}}1
 
@@ -212,11 +217,10 @@ engaging in unfair business practices, effectively using Oracle's products
 against Oracle.
 
 Supporters of Dalvik claim that Dalvik is an alternative and fulfills the same
-purpose as Oracle's HotSpot virtual machine, but does not use any of the
-HotSpot's software, it is ethical.  SONiVOX's code duplication was unethical,
-but Google was not aware of its use and it was removed immediately upon
-discovery.  The files used were only unit tests and not shipped as part of
-Android.
+purpose as Oracle's HotSpot \gls{vm}, but does not use any of the HotSpot's
+software, it is ethical.  SONiVOX's code duplication was unethical, but Google
+was not aware of its use and it was removed immediately upon discovery.  The
+files used were only unit tests and not shipped as part of Android.
 
 % subsection args-summary }}}2
 
@@ -256,21 +260,21 @@ if there was a higher principle that it conflicts with.
 \subsection{The Use of Java} % {{{2
 \label{sub:java}
 
-The Android SDK provides a modified Eclipse environment for developing Android
-applications using the Java programming language.  In light of the lawsuit,
-using another company's programming language seems unethical because it violates
-section 2.02 of the Software Engineering Code of Ethics (``Not knowingly use
-software that is obtained or retained either illegally or unethically'' \cite[\S
-2.02]{secode}).  Furthermore, using Java seems like a particularly bad idea when
-Google could have simply avoided the issue by picking another language to use.
-I address the licensing issues regarding Java in section~\ref{sub:licensing},
-``Licensing'', but first, why did Google pick Java?
+The Android \gls{sdk} provides a modified Eclipse environment for developing
+Android applications using the Java programming language.  In light of the
+lawsuit, using another company's programming language seems unethical because it
+violates section 2.02 of the Software Engineering Code of Ethics (``Not
+knowingly use software that is obtained or retained either illegally or
+unethically'' \cite[\S 2.02]{secode}).  Furthermore, using Java seems like a
+particularly bad idea when Google could have simply avoided the issue by picking
+another language to use.  I address the licensing issues regarding Java in
+section~\ref{sub:licensing}, ``Licensing'', but first, why did Google pick Java?
 
 Java refers to quite a few different concepts, so it is important to remember
 that there are two components that Java encompasses: the compiler and the
-virtual machine.  Oracle provides both a compiler and a virtual machine.  The
-compiler takes the source code the programmer writes and converts into
-bytecodes, which is then run by the virtual machine.
+\gls{vm}.  Oracle provides both a compiler and a \gls{vm}.  The compiler takes
+the source code the programmer writes and converts into \glspl{bytecode}, which
+is then run by the \gls{vm}.
 
 Java is a mature language that is taught at many universities, including Cal
 Poly, so its use reduces the amount of work for a developer to create an Android
@@ -293,17 +297,18 @@ standard) in this case.
 \label{ssub:dex}
 
 In an ordinary Java project, a developer compiles his Java source code files and
-those produce JavaVM bytecodes.  Those bytecodes can be run directly by
-a Java virtual machine.  An Android application requires an extra step: dx.
-dx, a part of the Android SDK, is a program that converts Java bytecodes to
-Dalvik bytecodes (the Dalvik executable format, dex).  Dalvik doesn't understand JavaVM
-bytecodes at all; the architecture is fundamentally different.
+those produce \gls{javavm} \glspl{bytecode}.  Those \glspl{bytecode} can be run
+directly by a Java \gls{vm}.  An Android application requires an extra step: dx.
+dx, a part of the Android \gls{sdk}, is a program that converts Java
+\glspl{bytecode} to Dalvik \glspl{bytecode} (the Dalvik executable format, dex).
+Dalvik doesn't understand \gls{javavm} \glspl{bytecode} at all; the architecture
+is fundamentally different.
 
-Because Dalvik uses dex, Java bytecodes are an intermediary, not the final
-product.  Converters could be written that compile other programming languages
-to the Dalvik executable format (and projects already exist to do this).  This
-means that Dalvik exists completely independently of Java.  Dalvik is a generic
-virtual machine.
+Because Dalvik uses dex, Java \glspl{bytecode} are an intermediary, not the
+final product.  Converters could be written that compile other programming
+languages to the Dalvik executable format (and projects already exist to do
+this).  This means that Dalvik exists completely independently of Java.  Dalvik
+is a generic \gls{vm}.
 
 Dalvik, then, must be categorized differently than how Oracle is portraying it.
 Dalvik is not an implementation of Java, it is an alternative, just as Pamela
@@ -331,12 +336,12 @@ developers will be looking for documentation and resources related to Java.
 These developers may continue to use Java for other software projects to
 minimize confusion.
 
-The Java compiler is already freely distributed under GNU GPL.  Oracle makes
-their money in services relating to Java, not Java itself.  The lack of phone
-supporting Java Micro Edition suggests that Oracle is not too heavily invested
-in the technology.  Nicholas Artman, a former employee at Apple and Yahoo,
-summarized that ``Oracle is, in essence, suing Google for actively preventing
-Oracle from hemoraging money on phones.'' \cite{artman}
+The Java compiler is already freely distributed under the \gls{gpl}.  Oracle
+makes their money in services relating to Java, not Java itself.  The lack of
+phone supporting Java Micro Edition suggests that Oracle is not too heavily
+invested in the technology.  Nicholas Artman, a former employee at Apple and
+Yahoo, summarized that ``Oracle is, in essence, suing Google for actively
+preventing Oracle from hemoraging money on phones.'' \cite{artman}
 
 % subsubsection oracle-damage }}}3
 
@@ -347,10 +352,10 @@ Java is now a well-established programming language in software engineering.
 The Software Engineering Code of Ethics encourages the use of standards whenever
 possible, so using Java is the proper choice unless there is a conflicting
 ethical or technical reason.  By separating Dalvik from Oracle's Java
-implementation, the Android SDK can use the Java programming language without
-unethically using Oracle's software.  Including the Java programming language
-promotes Oracle's products and helps them, rather than hindering them.  The
-choice to use Java is ethical.
+implementation, the Android \gls{sdk} can use the Java programming language
+without unethically using Oracle's software.  Including the Java programming
+language promotes Oracle's products and helps them, rather than hindering them.
+The choice to use Java is ethical.
 
 % subsubsection java-summary }}}3
 
@@ -366,48 +371,46 @@ doing exactly that: using software that infringes on their intellectual
 property.  To evaluate this claim, we need to examine the licensing terms on
 Oracle's Java implementation and Dalvik.
 
-Oracle releases their implementation of the compiler and the virtual machine
-under the GNU~General~Public~License, which means that it can be redistributed
-or modified as long as the source code is distributed as well.  This is a common
-open source license, but it is referred to as a viral license, because any
-modifications have to be made open as well.  One of the requirements of Android
-is to provide a common platform for a wide variety of phones
-\cite{open-handset-alliance-ann}; the only way to ensure a common platform is to
-encourage widespread adoption.  Companies want to be able to make proprietary
-modifications for their implementations, the GNU~General~Public~License does not
-allow this.  The Apache~License~2.0, another common open source license, allows
-any modification or redistribution, as long as the original copyright notice
-remains intact.  Companies prefer the Apache~License~2.0 because they want to be
-able to make proprietary modifications.  \cite{why-apache2-license}  Thus, to
-promote adoption, Google needed to release Android (and Dalvik) under the
-Apache~License~2.0 (or something similar).  However, code released under the
-GNU~General~Public~License cannot legally be released under the
-Apache~License~2.0.
+Oracle releases their implementation of the compiler and the \gls{vm} under the
+\gls{gpl}, which means that it can be redistributed or modified as long as the
+source code is distributed as well.  This is a common open source license, but
+it is referred to as a viral license, because any modifications have to be made
+open as well.  One of the requirements of Android is to provide a common
+platform for a wide variety of phones \cite{open-handset-alliance-ann}; the only
+way to ensure a common platform is to encourage widespread adoption.  Companies
+want to be able to make proprietary modifications for their implementations, the
+\gls{gpl} does not allow this.  The \gls{apl}, another common open source
+license, allows any modification or redistribution, as long as the original
+copyright notice remains intact.  Companies prefer the \gls{apl} because they
+want to be able to make proprietary modifications.  \cite{why-apache2-license}
+Thus, to promote adoption, Google needed to release Android (and Dalvik) under
+the \gls{apl} (or something similar).  However, code released under the
+\gls{gpl} cannot legally be released under the \gls{apl}.
 
-Google does not include any Java development tools in the Android SDK; the Java
-Development Kit must be installed separately from Oracle.  This means that
+Google does not include any Java development tools in the Android \gls{sdk}; the
+Java Development Kit must be installed separately from Oracle.  This means that
 Google is not redistributing or modifying the Java compiler.  A major part of a
-Java virtual machine is the runtime libraries, which provides code that is
-common to many software projects.  Oracle does include an extensive standard
-library in their Java Development Kit, but the Android SDK specifically disables
-its use when it compiles an application.  Instead, Google uses the
-Apache~Harmony libraries, an implementation of a subset of Oracle's standard
-library released under the Apache~License~2.0.  In order for this to be ethical,
-the Software Engineering Code of Ethics dictates that software engineers ought
-to ``credit fully the work of others and refrain from taking undue credit.''
-\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
-Apache~License~2.0 and credits Harmony in the Dalvik README.
-\cite{dalvik-readme}  The principle of giving credit is upheld.
+Java \gls{vm} is the runtime \gls{library}, which provides code that is common
+to many software projects.  Oracle does include an extensive standard
+\gls{library} in their Java Development Kit, but the Android \gls{sdk}
+specifically disables its use when it compiles an application.  Instead, Google
+uses the Apache~Harmony \gls{library}, an implementation of a subset of Oracle's
+standard \gls{library} released under the \gls{apl}.  In order for this to be
+ethical, the Software Engineering Code of Ethics dictates that software
+engineers ought to ``credit fully the work of others and refrain from taking
+undue credit.'' \cite[\S 7.03]{secode}  Google distributes Dalvik under the same
+\gls{apl} and credits Harmony in the Dalvik README.  \cite{dalvik-readme}  The
+principle of giving credit is upheld.
 
 \subsubsection{The Unit Test Fiasco} % {{{3
 \label{ssub:unittest-fiasco}
 
 The Oracle lawsuit includes examples of code in Dalvik that matches code inside
-of the HotSpot virtual machine.  As noted in ``Copied Code'' (section
+of the HotSpot \gls{vm}.  As noted in ``Copied Code'' (section
 \ref{sub:fosspatents}), Florian Mueller made the claim on January 2011 that
 additional files in the Dalvik repository were copied directly from Oracle's
-HotSpot virtual~machine, beyond what Oracle claimed.  If Google copied code
-illegally, then their actions are unethical.
+HotSpot \gls{vm}, beyond what Oracle claimed.  If Google copied code illegally,
+then their actions are unethical.
 
 The duplicated files are not part of the Dalvik, but are in a separate support
 directory.  Dalvik does not use them directly, but developers used the files to
@@ -424,17 +427,17 @@ Software Engineering Code of Ethics.
 \subsubsection{Summary} % {{{3
 \label{ssub:licensing-summary}
 
-Google does not redistribute or modify any part of Oracle's Java~Development~Kit.
-Instead, they inform developers to obtain the Java~Development~Kit from Oracle
-under the terms of the GNU~General~Public~License.  Oracle's HotSpot
-virtual~machine is only used in the Android SDK, but not in the Android
-operating system, which is released under the Apache~License~2.0.  The compiler
-included in the Java~Development~Kit could be replaced by another program which
-produces JavaVM bytecodes.
+Google does not redistribute or modify any part of Oracle's
+Java~Development~Kit.  Instead, they inform developers to obtain the
+Java~Development~Kit from Oracle under the terms of the \gls{gpl}.  Oracle's
+HotSpot \gls{vm} is only used in the Android \gls{sdk}, but not in the Android
+operating system, which is released under the \gls{apl}.  The compiler included
+in the Java~Development~Kit could be replaced by another program which produces
+\gls{javavm} \glspl{bytecode}.
 
-Google used the Apache Harmony libraries for Dalvik instead of using Oracle's
-libraries.  Google created Dalvik and then used Apache~Harmony to supplement its
-functionality, obeying all the terms of the Apache~License~2.0.  The
+Google used the Apache Harmony \gls{library} for Dalvik instead of using
+Oracle's \gls{library}.  Google created Dalvik and then used Apache~Harmony to
+supplement its functionality, obeying all the terms of the \gls{apl}.  The
 Apache~Software~Foundation's copyright notice remained intact, thus giving
 proper credit to the Apache~Software~Foundation. All software was either created
 at Google or obtained legally.  Therefore, Google adhered to Section 2.02 of the
@@ -490,25 +493,24 @@ see how they apply to the Software Engineering Code of Ethics.
 \label{ssub:why-vm}
 
 In considering these requirements, none of these seems to mandate the use of a
-virtual machine.  Indeed, Apple's competing iOS compiles directly to machine
-code, runs on devices with different ARM processors, and provides a good user
-experience.  The open licensing requirement can be fulfilled in any way.  Why
-was Dalvik chosen as the solution for the requirements?
+\gls{vm}.  Indeed, Apple's competing iOS compiles directly to machine code, runs
+on devices with different ARM processors, and provides a good user experience.
+The open licensing requirement can be fulfilled in any way.  Why was Dalvik
+chosen as the solution for the requirements?
 
 One of Android's goals is to provide portability: an application should be able
 to run on a variety of devices.  Each phone may have a slightly different
 hardware; a program which runs well on one phone may run poorly on another
-phone.  A virtual machine would provide a predictable, consistent execution
-environment between phones without placing burden on application developers.
+phone.  A \gls{vm} would provide a predictable, consistent execution environment
+between phones without placing burden on application developers.
 
-A virtual machine also has some side benefits that are useful for phone
-development.  Because a virtual machine has more control over the execution
-environment, a virtual machine can more aggressively collect unused memory.  The
-virtual machine can also track all accesses to resources, so a virtual machine
-can enforce that a program only has access to the APIs it requested permission
-for (this is discussed in more detail later).  Dalvik uses these features to
-make Android secure and memory efficient --- important qualities for maintaining
-user privacy and user experience.
+A \gls{vm} also has some side benefits that are useful for phone development.
+Because a \gls{vm} has more control over the execution environment, a \gls{vm}
+can more aggressively collect unused memory.  The \gls{vm} can also track all
+accesses to resources, so a \gls{vm} can enforce that a program only has access
+to the APIs it requested permission for (this is discussed in more detail
+later).  Dalvik uses these features to make Android secure and memory efficient
+--- important qualities for maintaining user privacy and user experience.
 
 % subsubsection why-vm }}}3
 
@@ -525,10 +527,10 @@ application developers are also a large part of the audience of Android.  An
 application can be written once and deployed on many different phones with
 radically different hardware specifications.  When the first Android tablets
 were introduced, most applications ran correctly on the first day because the
-virtual machine could handle the better processor and would abstract the
-hardware.  The end-user benefits from this abstraction as well.  Applications
-behave nicely on their phone: resources are managed, the process is secure, and
-the application is guaranteed to run.
+\gls{vm} could handle the better processor and would abstract the hardware.  The
+end-user benefits from this abstraction as well.  Applications behave nicely on
+their phone: resources are managed, the process is secure, and the application
+is guaranteed to run.
 
 % subsubsection quality }}}3
 
@@ -553,15 +555,15 @@ This is part of Dalvik's runtime environment: applications must declare what
 actions they are going to try to do, or else Dalvik terminates the program.
 Dalvik controls access to private information.
 
-This would be difficult (although not impossible) to do without a virtual
-machine.  Natively compiled code uses the CPU directly, so there would be more
-burden on the underlying operating system to implement the security features,
-which are usually rather abstract.  For example (taken from the Android
-Developer Documentation), a picture viewing program can't ordinarily access data
-from the email client, but if the user wants to open an attachment, the email
-client can temporarily grant access to the corresponding image, and nothing
-more.  By controlling the code executing in user space, Dalvik can enforce much
-more fine-grained control over security, thus protecting its user's privacy.
+This would be difficult (although not impossible) to do without a \gls{vm}
+Natively compiled code uses the CPU directly, so there would be more burden on
+the underlying operating system to implement the security features, which are
+usually rather abstract.  For example (taken from the Android Developer
+Documentation), a picture viewing program can't ordinarily access data from the
+email client, but if the user wants to open an attachment, the email client can
+temporarily grant access to the corresponding image, and nothing more.  By
+controlling the code executing in user space, Dalvik can enforce much more
+fine-grained control over security, thus protecting its user's privacy.
 
 % subsubsection privacy }}}3
 
@@ -610,11 +612,11 @@ the Software Engineering Code of Ethics.
 \label{sec:conclusion}
 
 In order to best meet project requirements, Google needed to use Java and a
-virtual machine in Android.  Google fulfilled their duty to the public and the
-Software Engineering Code of Ethics by creating a new virtual machine, Dalvik.
-Because Dalvik uses a different architecture and doesn't use code from Oracle's
-Java implementation, it does not infringe upon Oracle's intellectual property
-and remains ethical.  Dalvik meets the requirements of the Android project by
+\gls{vm} in Android.  Google fulfilled their duty to the public and the Software
+Engineering Code of Ethics by creating a new \gls{vm}, Dalvik.  Because Dalvik
+uses a different architecture and doesn't use code from Oracle's Java
+implementation, it does not infringe upon Oracle's intellectual property and
+remains ethical.  Dalvik meets the requirements of the Android project by
 promoting user experience, portability, security, and privacy.  These
 requirements could not be met by existing software, so creating Dalvik was the
 logical choice.  Google's use of Dalvik is ethical.
@@ -623,33 +625,7 @@ logical choice.  Google's use of Dalvik is ethical.
 
 \appendix
 
-\section{Glossary} % {{{1
-\label{sec:glossary}
-
-\begin{description}
-    \item[Virtual Machine] A program that runs instructions that are not
-    natively understood by a CPU.
-    \item[Bytecode] An instruction understood by a virtual machine.
-    \item[JavaVM] The set of bytecodes that is documented by ``The Java Virtual
-    Machine Specification''. \cite{javavm-bytecode}
-    \item[SDK] Software Development Kit.  An SDK is a set of programs and other
-    materials that allows programmers to write programs for a particular
-    environment.
-    \item[Open Source] If a software project released as open source, it means
-    that the software's source code can be obtained and reused legally.  There
-    are many licenses that are considered open source, each with different
-    terms.
-    \item[Apache License 2.0] An open source license that allows modification
-    and reuse of the source code, even if the user don't redistribute the
-    modified source code. \cite{apache-license}
-    \item[GNU GPL License] GNU General Public License.  An open source license
-    that allows modification and reuse of the source code, as long as users
-    distribute the source code of their modifications. \cite{gpl-license}
-    \item[Library] A collection of code that is useful in many different
-    programs (e.g.\ text handling, graphics, etc.).
-\end{description}
-
-% section glossary }}}1
+\printglossaries
 
 \end{multicols}
 \newpage

@@ -3,6 +3,10 @@ syntax:glob
 *.bbl
 *.blg
 *.dvi
+*.glg
+*.glo
+*.gls
+*.ist
 *.log
 *.out
 *.pdf
