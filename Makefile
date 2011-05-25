@@ -43,8 +43,6 @@ pdf: $(NAME).pdf
 	@$(PDFLATEX) $(NAME)
 
 clean:
-	rm -f *.log *.aux *.bbl *.blg *.out *.toc *.synctex.gz
-	rm -f *.glg *.glo *.gls *.ist
-	rm -f *.pdf
+	rm -f `hg st -in`
 
 .PHONY: all pdf clean
