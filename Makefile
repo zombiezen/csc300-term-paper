@@ -33,16 +33,11 @@ pdf: $(NAME).pdf
 	@echo
 	
 	@echo "--- Running LaTeX until complete"
-	@if $(PDFLATEX) $(TEXFILES) | tee /dev/tty | grep -Fis rerun; then	\
-	    	echo;								\
-		echo "--- Rerunning LaTeX";					\
-		while $(PDFLATEX) $(TEXFILES) | grep -Fis rerun; do		\
-			echo;							\
-			echo "--- Re-Rerunning LaTeX";				\
-		done;								\
-	fi
+	@$(PDFLATEX) $(TEXFILES)
+	@$(PDFLATEX) $(TEXFILES)
+	@$(PDFLATEX) $(TEXFILES)
 
 clean:
-	rm -f $(NAME).pdf $(NAME).log $(NAME).aux *.bbl *.blg *.toc $(NAME).synctex.gz
+	rm -f $(NAME).pdf $(NAME).log $(NAME).aux *.bbl *.blg *.out *.toc $(NAME).synctex.gz
 
 .PHONY: all pdf clean
