@@ -190,6 +190,12 @@ unethical behavior.
 \subsection{Criteria for Analysis} % {{{2
 \label{sub:criteria}
 
+% TODO
+Much of the ethics of the situation is concerned with Oracle's intellectual
+property.  The scope of the question is much wider, though.  Whether Dalvik is
+ethical is not just dependent on whether it just violates principles, but also
+whether it follows principles.
+
 In order to establish whether Google's actions are ethical or unethical, it is
 important to provide an objective set of standards that are well-accepted for
 the basis of this analysis.  At first glance, using Google's Code of Conduct
@@ -207,12 +213,6 @@ measure, Google would be unethical in creating Dalvik if it violated the
 Software Engineering Code of Ethics and Professional Practice \cite{secode} or
 if there was a higher principle that it conflicts with.
 
-% TODO
-Much of the ethics of the situation is concerned with Oracle's intellectual
-property.  The scope of the question is much wider, though.  Whether Dalvik is
-ethical is not just dependent on whether it just violates principles, but also
-whether it follows principles.
-
 % subsection criteria }}}2
 
 \subsection{Duty to the Public} % {{{2
@@ -226,7 +226,8 @@ possibility of its damage is limited because Android operates on consumer-level
 mobile devices.  No claim has been made that Android is not well-tested and it
 comes from the Linux kernel, a well-tested piece of software.  Therefore, the
 only relevant concerns here are the conformance to specifications, the effect on
-quality of life, and the effect on privacy.
+quality of life, and the effect on privacy.  Dalvik must meet all of these
+conditions in order to be ethical.
 
 \subsubsection{Requirements} % {{{3
 \label{ssub:requirements}
@@ -353,7 +354,10 @@ quality of life.
 
 One of Android's main design goals is user experience: ensuring that a user can
 get tasks done in Android effectively and easily.  That user experience is
-consistent across many phones (part of the portability), which will make
+consistent across many phones (part of the portability), which will make the
+transition to another phone smoother.  This shortens the amount of collective
+time that users have to learn another user interface paradigm, so that people
+can get things done.  This is an important benefit.
 
 % subsubsection public-effect }}}3
 
@@ -382,6 +386,11 @@ executable format that is distinct from JavaVM.  Google created Dalvik and then
 used Apache~Harmony to supplement its functionality, obeying all the terms of
 the Apache~License~2.0.  All software was either created at Google or obtained
 legally.
+
+Oracle releases their
+implementation of the compiler and the virtual machine under the GNU General
+Public License, which means that they can be redistributed or modified as long
+as the source code is distributed as well.
 
 One of the requirements of Android is to provide a common platform for a wide
 variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
@@ -420,9 +429,37 @@ accordance with Section 2.02 of the Software Engineering Code of Ethics.
 \label{sub:java}
 
 The Android SDK provides a modified Eclipse environment for developing Android
-applications using the Java programming language.  Java is a well-developed
-language that is taught at many universities, including Cal Poly, so its use
-reduces the amount of work for a developer to create an Android application.
+applications using the Java programming language.  In light of the lawsuit,
+using another company's programming language seems unethical because it violates
+section 2.02 of the Software Engineering Code of Ethics (``Not knowingly use
+software that is obtained or retained either illegally or unethically'' \cite[\S
+2.02]{secode}).  Furthermore, using Java seems like a particularly bad idea when
+Google could have simply avoided the issue by picking another language to use.
+I address the licensing issues regarding Java in section~\ref{sub:licensing},
+``Licensing'', but first, why did Google pick Java?
+
+Java refers to quite a few different concepts, so it is important to remember
+that there are two components that Java encompasses: the compiler and the
+virtual machine.  Oracle provides both a compiler and a virtual machine.  The
+compiler takes the source code the programmer writes and converts into
+bytecodes, which is then run by the virtual machine.
+
+Java is a mature language that is taught at many universities, including Cal
+Poly, so its use reduces the amount of work for a developer to create an Android
+application.  A developer doesn't have to learn a new language in order to be
+productive.
+
+% TODO: fix TIOBE cite
+The Software Engineering Code of Ethics presents an obligation to
+``work to follow professional standards, when available, that are most
+appropriate for the task at hand, departing from these only when ethically or
+technically justified.'' \cite[\S 3.06]{secode}  Java was ranked the most
+popular programming language in 2006 \cite[Long term trends]{tiobe}, the year
+before Android was released.  Java runs on many platforms and is documented in
+specifications.  Java is a common standard used by many other software
+companies.  As long as there isn't an ethical or technical conflict, the
+Software Engineering Code of Ethics would recommend Java (the professional
+standard) in this case.
 
 The Software Engineering Code \cite{secode} encourages software engineers to
 ``strive for high quality, acceptable cost, and a reasonable schedule'' in a
@@ -432,7 +469,6 @@ had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
 characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
 virtual machines that could have been used, but none met the goals of the
 Android project.
-
 
 \subsubsection{The dx Program} % {{{3
 \label{ssub:dex}
