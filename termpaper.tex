@@ -215,6 +215,139 @@ if there was a higher principle that it conflicts with.
 
 % subsection criteria }}}2
 
+\subsection{The Use of Java} % {{{2
+\label{sub:java}
+
+The Android SDK provides a modified Eclipse environment for developing Android
+applications using the Java programming language.  In light of the lawsuit,
+using another company's programming language seems unethical because it violates
+section 2.02 of the Software Engineering Code of Ethics (``Not knowingly use
+software that is obtained or retained either illegally or unethically'' \cite[\S
+2.02]{secode}).  Furthermore, using Java seems like a particularly bad idea when
+Google could have simply avoided the issue by picking another language to use.
+I address the licensing issues regarding Java in section~\ref{sub:licensing},
+``Licensing'', but first, why did Google pick Java?
+
+Java refers to quite a few different concepts, so it is important to remember
+that there are two components that Java encompasses: the compiler and the
+virtual machine.  Oracle provides both a compiler and a virtual machine.  The
+compiler takes the source code the programmer writes and converts into
+bytecodes, which is then run by the virtual machine.
+
+Java is a mature language that is taught at many universities, including Cal
+Poly, so its use reduces the amount of work for a developer to create an Android
+application.  A developer doesn't have to learn a new language in order to be
+productive.
+
+% TODO: fix TIOBE cite
+The Software Engineering Code of Ethics presents an obligation to
+``work to follow professional standards, when available, that are most
+appropriate for the task at hand, departing from these only when ethically or
+technically justified.'' \cite[\S 3.06]{secode}  Java was ranked the most
+popular programming language in 2006 \cite[Long term trends]{tiobe}, the year
+before Android was released.  Java runs on many platforms and is documented in
+specifications.  Java is a common standard used by many other software
+companies.  As long as there isn't an ethical or technical conflict, the
+Software Engineering Code of Ethics would recommend Java (the professional
+standard) in this case.
+
+The Software Engineering Code \cite{secode} encourages software engineers to
+``strive for high quality, acceptable cost, and a reasonable schedule'' in a
+product.  Dalvik would not have been completed in a reasonable amount of time
+without using portions of Apache Harmony, nor would it be as high quality if it
+had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
+characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
+virtual machines that could have been used, but none met the goals of the
+Android project.
+
+\subsubsection{The dx Program} % {{{3
+\label{ssub:dex}
+
+dx, a part of the Android SDK, is a separate program that converts Java
+bytecodes to Dalvik bytecodes (the Dalvik executable format, dex).  Converters
+could be written that convert other programming languages to the Dalvik
+executable format; there is no dependency on Java.  Dalvik includes libraries
+that are similar to those in the Java standard library, but creating an API
+that's similar to another is not an unethical act, as long as the underlying
+implementations differ.
+
+% subsubsection dex }}}3
+
+\subsubsection{Damages to Oracle} % {{{3
+\label{ssub:oracle-damage}
+
+Oracle's lawsuit would seem to indicate that Google is harming the public
+(specifically Oracle) by using unfair business practices to detract from
+Oracle's profits.  Oracle publishes a specification for a similar environment,
+Java Micro Edition, but there are no well-known phones that implement it.
+Before Android's announcement in 2007, the usage of Java was declining, but 2008
+showed a sharp increase in interest.  \cite{tiobe}  Android may not be directly
+related to this increase, but with an influx of developers, it would follow that
+developers will be looking for documentation and resources related to Java.
+These developers may use Java for other software projects to minimize language
+switching.
+
+The Java compiler is already freely distributed under GNU GPL.  Oracle makes
+their money in services relating to Java, not Java itself.  The lack of phone
+supporting Java Micro Edition suggests that Oracle is not too heavily invested
+in the technology.  Nicholas Artman, a former employee at Apple and Yahoo,
+summarized that ``Oracle is, in essence, suing Google for actively preventing
+Oracle from hemoraging money on phones.'' \cite{artman}
+
+% subsubsection oracle-damage }}}3
+
+% subsection java }}}2
+
+\subsection{Licensing} % {{{2
+\label{sub:licensing}
+
+Section 2.02 of the Software Engineering Code states that software engineers
+should ``not knowingly use software that is obtained or retained either
+illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
+libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
+executable format that is distinct from JavaVM.  Google created Dalvik and then
+used Apache~Harmony to supplement its functionality, obeying all the terms of
+the Apache~License~2.0.  All software was either created at Google or obtained
+legally.
+
+Oracle releases their
+implementation of the compiler and the virtual machine under the GNU General
+Public License, which means that they can be redistributed or modified as long
+as the source code is distributed as well.
+
+One of the requirements of Android is to provide a common platform for a wide
+variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
+common platform is to encourage widespread adoption.  Companies prefer the
+Apache License 2.0 because of its less restrictive nature than the GPL.
+\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
+under the Apache License 2.0.
+
+Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
+it uses portions of the Apache~Harmony libraries.  In order for this to be
+ethical, the Software Engineering Code dictates that software engineers ought to
+``credit fully the work of others and refrain from taking undue credit.''
+\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
+Apache~License~2.0 and credits Harmony in the Dalvik README.
+\cite{dalvik-readme}  The principle of giving credit is upheld.
+
+\subsubsection{The Unit Test Fiasco} % {{{3
+\label{ssub:unittest-fiasco}
+
+As noted before, Florian Mueller made the claim on January 2011 that files in
+the Dalvik libraries were copied directly from Oracle's HotSpot.  It was later
+shown that these files were only unit tests, which makes the ethics of the
+situation a little fuzzy.  It has also been revealed that the files were
+committed by a third-party company, SONiVOX, involved in the project.  Google
+did not know that they had copied the code, and once they discovered the code
+was copied, they deleted the offending files from the repository.  Although they
+used software that was retained illegally, they did not know about it.  Once
+they did discover it, they deleted the files.  Therefore, they acted in
+accordance with Section 2.02 of the Software Engineering Code of Ethics.
+
+% subsubsection unittest-fiasco }}}3
+
+% subsection licensing }}}2
+
 \subsection{Duty to the Public} % {{{2
 \label{sub:public}
 
@@ -374,139 +507,6 @@ the Software Engineering Code of Ethics.
 % subsubsection public-summary }}}3
 
 % subsection public }}}2
-
-\subsection{Licensing} % {{{2
-\label{sub:licensing}
-
-Section 2.02 of the Software Engineering Code states that software engineers
-should ``not knowingly use software that is obtained or retained either
-illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
-libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
-executable format that is distinct from JavaVM.  Google created Dalvik and then
-used Apache~Harmony to supplement its functionality, obeying all the terms of
-the Apache~License~2.0.  All software was either created at Google or obtained
-legally.
-
-Oracle releases their
-implementation of the compiler and the virtual machine under the GNU General
-Public License, which means that they can be redistributed or modified as long
-as the source code is distributed as well.
-
-One of the requirements of Android is to provide a common platform for a wide
-variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
-common platform is to encourage widespread adoption.  Companies prefer the
-Apache License 2.0 because of its less restrictive nature than the GPL.
-\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
-under the Apache License 2.0.
-
-Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
-it uses portions of the Apache~Harmony libraries.  In order for this to be
-ethical, the Software Engineering Code dictates that software engineers ought to
-``credit fully the work of others and refrain from taking undue credit.''
-\cite[\S 7.03]{secode}  Google distributes Dalvik under the same
-Apache~License~2.0 and credits Harmony in the Dalvik README.
-\cite{dalvik-readme}  The principle of giving credit is upheld.
-
-\subsubsection{The Unit Test Fiasco} % {{{3
-\label{ssub:unittest-fiasco}
-
-As noted before, Florian Mueller made the claim on January 2011 that files in
-the Dalvik libraries were copied directly from Oracle's HotSpot.  It was later
-shown that these files were only unit tests, which makes the ethics of the
-situation a little fuzzy.  It has also been revealed that the files were
-committed by a third-party company, SONiVOX, involved in the project.  Google
-did not know that they had copied the code, and once they discovered the code
-was copied, they deleted the offending files from the repository.  Although they
-used software that was retained illegally, they did not know about it.  Once
-they did discover it, they deleted the files.  Therefore, they acted in
-accordance with Section 2.02 of the Software Engineering Code of Ethics.
-
-% subsubsection unittest-fiasco }}}3
-
-% subsection licensing }}}2
-
-\subsection{The Use of Java} % {{{2
-\label{sub:java}
-
-The Android SDK provides a modified Eclipse environment for developing Android
-applications using the Java programming language.  In light of the lawsuit,
-using another company's programming language seems unethical because it violates
-section 2.02 of the Software Engineering Code of Ethics (``Not knowingly use
-software that is obtained or retained either illegally or unethically'' \cite[\S
-2.02]{secode}).  Furthermore, using Java seems like a particularly bad idea when
-Google could have simply avoided the issue by picking another language to use.
-I address the licensing issues regarding Java in section~\ref{sub:licensing},
-``Licensing'', but first, why did Google pick Java?
-
-Java refers to quite a few different concepts, so it is important to remember
-that there are two components that Java encompasses: the compiler and the
-virtual machine.  Oracle provides both a compiler and a virtual machine.  The
-compiler takes the source code the programmer writes and converts into
-bytecodes, which is then run by the virtual machine.
-
-Java is a mature language that is taught at many universities, including Cal
-Poly, so its use reduces the amount of work for a developer to create an Android
-application.  A developer doesn't have to learn a new language in order to be
-productive.
-
-% TODO: fix TIOBE cite
-The Software Engineering Code of Ethics presents an obligation to
-``work to follow professional standards, when available, that are most
-appropriate for the task at hand, departing from these only when ethically or
-technically justified.'' \cite[\S 3.06]{secode}  Java was ranked the most
-popular programming language in 2006 \cite[Long term trends]{tiobe}, the year
-before Android was released.  Java runs on many platforms and is documented in
-specifications.  Java is a common standard used by many other software
-companies.  As long as there isn't an ethical or technical conflict, the
-Software Engineering Code of Ethics would recommend Java (the professional
-standard) in this case.
-
-The Software Engineering Code \cite{secode} encourages software engineers to
-``strive for high quality, acceptable cost, and a reasonable schedule'' in a
-product.  Dalvik would not have been completed in a reasonable amount of time
-without using portions of Apache Harmony, nor would it be as high quality if it
-had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
-characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
-virtual machines that could have been used, but none met the goals of the
-Android project.
-
-\subsubsection{The dx Program} % {{{3
-\label{ssub:dex}
-
-dx, a part of the Android SDK, is a separate program that converts Java
-bytecodes to Dalvik bytecodes (the Dalvik executable format, dex).  Converters
-could be written that convert other programming languages to the Dalvik
-executable format; there is no dependency on Java.  Dalvik includes libraries
-that are similar to those in the Java standard library, but creating an API
-that's similar to another is not an unethical act, as long as the underlying
-implementations differ.
-
-% subsubsection dex }}}3
-
-\subsubsection{Damages to Oracle} % {{{3
-\label{ssub:oracle-damage}
-
-Oracle's lawsuit would seem to indicate that Google is harming the public
-(specifically Oracle) by using unfair business practices to detract from
-Oracle's profits.  Oracle publishes a specification for a similar environment,
-Java Micro Edition, but there are no well-known phones that implement it.
-Before Android's announcement in 2007, the usage of Java was declining, but 2008
-showed a sharp increase in interest.  \cite{tiobe}  Android may not be directly
-related to this increase, but with an influx of developers, it would follow that
-developers will be looking for documentation and resources related to Java.
-These developers may use Java for other software projects to minimize language
-switching.
-
-The Java compiler is already freely distributed under GNU GPL.  Oracle makes
-their money in services relating to Java, not Java itself.  The lack of phone
-supporting Java Micro Edition suggests that Oracle is not too heavily invested
-in the technology.  Nicholas Artman, a former employee at Apple and Yahoo,
-summarized that ``Oracle is, in essence, suing Google for actively preventing
-Oracle from hemoraging money on phones.'' \cite{artman}
-
-% subsubsection oracle-damage }}}3
-
-% subsection java }}}2
 
 % section analysis }}}1
 
