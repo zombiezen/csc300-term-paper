@@ -402,16 +402,22 @@ Apache~License~2.0 and credits Harmony in the Dalvik README.
 \subsubsection{The Unit Test Fiasco} % {{{3
 \label{ssub:unittest-fiasco}
 
-As noted before, Florian Mueller made the claim on January 2011 that files in
-the Dalvik libraries were copied directly from Oracle's HotSpot.  It was later
-shown that these files were only unit tests, which makes the ethics of the
-situation a little fuzzy.  It has also been revealed that the files were
-committed by a third-party company, SONiVOX, involved in the project.  Google
-did not know that they had copied the code, and once they discovered the code
-was copied, they deleted the offending files from the repository.  Although they
-used software that was retained illegally, they did not know about it.  Once
-they did discover it, they deleted the files.  Therefore, they acted in
-accordance with Section 2.02 of the Software Engineering Code of Ethics.
+The Oracle lawsuit includes examples of code in Dalvik that matches code inside
+of the HotSpot virtual machine.  As noted in ``Copied Code'' (section
+\ref{sub:fosspatents}), Florian Mueller made the claim on January 2011 that
+additional files in the Dalvik repository were copied directly from Oracle's
+HotSpot virtual~machine, beyond what Oracle claimed.  If Google copied code
+illegally, then their actions are unethical.
+
+The duplicated files are not part of the Dalvik, but are in a separate support
+directory.  Dalvik does not use them directly, but developers used the files to
+perform unit tests.  When Dalvik is built and deployed, it does not use these
+files.  Therefore Dalvik itself does not contain any software that is illegally
+obtained.  Google did not know that the code had been copied illegally, and once
+they discovered it, they deleted the offending files from the repository.
+Although they used software that was retained illegally, they did not do so
+knowingly.  Therefore, they still acted in accordance with Section 2.02 of the
+Software Engineering Code of Ethics.
 
 % subsubsection unittest-fiasco }}}3
 
