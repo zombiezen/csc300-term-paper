@@ -261,25 +261,31 @@ companies.  As long as there isn't an ethical or technical conflict, the
 Software Engineering Code of Ethics would recommend Java (the professional
 standard) in this case.
 
-The Software Engineering Code \cite{secode} encourages software engineers to
-``strive for high quality, acceptable cost, and a reasonable schedule'' in a
-product.  Dalvik would not have been completed in a reasonable amount of time
-without using portions of Apache Harmony, nor would it be as high quality if it
-had used Oracle's HotSpot.  HotSpot doesn't fit within the performance
-characteristics of lower-end phones. \cite{dalvik-vm-arch} There are other Java
-virtual machines that could have been used, but none met the goals of the
-Android project.
-
 \subsubsection{The dx Program} % {{{3
 \label{ssub:dex}
 
-dx, a part of the Android SDK, is a separate program that converts Java
-bytecodes to Dalvik bytecodes (the Dalvik executable format, dex).  Converters
-could be written that convert other programming languages to the Dalvik
-executable format; there is no dependency on Java.  Dalvik includes libraries
-that are similar to those in the Java standard library, but creating an API
-that's similar to another is not an unethical act, as long as the underlying
-implementations differ.
+In an ordinary Java project, a developer compiles his Java source code files and
+those produce JavaVM bytecodes.  Those bytecodes can be run directly by
+a Java virtual machine.  An Android application requires an extra step: dx.
+dx, a part of the Android SDK, is a program that converts Java bytecodes to
+Dalvik bytecodes (the Dalvik executable format, dex).  Dalvik doesn't understand JavaVM
+bytecodes at all; the architecture is fundamentally different.
+
+Because Dalvik uses dex, Java bytecodes are an intermediary, not the final
+product.  Converters could be written that compile other programming languages
+to the Dalvik executable format (and projects already exist to do this).  This
+means that Dalvik exists completely independently of Java.  Dalvik is a generic
+virtual machine.
+
+Dalvik, then, must be categorized differently than how Oracle is portraying it.
+Dalvik is not an implementation of Java, it is an alternative, just as Pamela
+Jones argued. \cite{groklaw}  Oracle's HotSpot and Google's Dalvik solve the
+same problem, but they do it in different ways.  Copying someone else's
+implementation is certainly intellectual property infringement, but making a
+different program that accomplishes the same task is ethical.  For instance, no
+one is arguing that Google Docs is violating Oracle's OpenOffice intellectual
+property, even though they share many of the same features.  Products can solve
+the same problem and still be ethical.
 
 % subsubsection dex }}}3
 
