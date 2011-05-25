@@ -313,29 +313,40 @@ Oracle from hemoraging money on phones.'' \cite{artman}
 
 Section 2.02 of the Software Engineering Code states that software engineers
 should ``not knowingly use software that is obtained or retained either
-illegally or unethically.'' \cite[\S 2.02]{secode}  Instead of using Oracle's
-libraries, Google used the Apache Harmony libraries.  Dalvik uses its own
-executable format that is distinct from JavaVM.  Google created Dalvik and then
-used Apache~Harmony to supplement its functionality, obeying all the terms of
-the Apache~License~2.0.  All software was either created at Google or obtained
-legally.
+illegally or unethically.'' \cite[\S 2.02]{secode}  Oracle claims that Google is
+doing exactly that: using software that infringes on their intellectual
+property.  To evaluate this claim, we need to examine the licensing terms on
+Oracle's Java implementation and Dalvik.
 
-Oracle releases their
-implementation of the compiler and the virtual machine under the GNU General
-Public License, which means that they can be redistributed or modified as long
-as the source code is distributed as well.
+Oracle releases their implementation of the compiler and the virtual machine
+under the GNU~General~Public~License, which means that it can be redistributed
+or modified as long as the source code is distributed as well.  This is a common
+open source license, but it is referred to as a viral license, because any
+modifications have to be made open as well.  One of the requirements of Android
+is to provide a common platform for a wide variety of phones
+\cite{open-handset-alliance-ann}; the only way to ensure a common platform is to
+encourage widespread adoption.  Companies want to be able to make proprietary
+modifications for their implementations, the GNU~General~Public~License does not
+allow this.  The Apache~License~2.0, another common open source license, allows
+any modification or redistribution, as long as the original copyright notice
+remains intact.  Companies prefer the Apache~License~2.0 because they want to be
+able to make proprietary modifications.  \cite{why-apache2-license}  Thus, to
+promote adoption, Google needed to release Android (and Dalvik) under the
+Apache~License~2.0 (or something similar).  However, code released under the
+GNU~General~Public~License cannot legally be released under the
+Apache~License~2.0.
 
-One of the requirements of Android is to provide a common platform for a wide
-variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
-common platform is to encourage widespread adoption.  Companies prefer the
-Apache License 2.0 because of its less restrictive nature than the GPL.
-\cite{why-apache2-license}  Thus, to promote adoption, Google released Android
-under the Apache License 2.0.
-
-Google's implementation of Dalvik does not use any of Oracle's~HotSpot~VM, but
-it uses portions of the Apache~Harmony libraries.  In order for this to be
-ethical, the Software Engineering Code dictates that software engineers ought to
-``credit fully the work of others and refrain from taking undue credit.''
+Google does not include any Java development tools in the Android SDK; the Java
+Development Kit must be installed separately from Oracle.  This means that
+Google is not redistributing or modifying the Java compiler.  A major part of a
+Java virtual machine is the runtime libraries, which provides code that is
+common to many software projects.  Oracle does include an extensive standard
+library in their Java Development Kit, but the Android SDK specifically disables
+its use when it compiles an application.  Instead, Google uses the
+Apache~Harmony libraries, an implementation of a subset of Oracle's standard
+library released under the Apache~License~2.0.  In order for this to be ethical,
+the Software Engineering Code of Ethics dictates that software engineers ought
+to ``credit fully the work of others and refrain from taking undue credit.''
 \cite[\S 7.03]{secode}  Google distributes Dalvik under the same
 Apache~License~2.0 and credits Harmony in the Dalvik README.
 \cite{dalvik-readme}  The principle of giving credit is upheld.
@@ -355,6 +366,17 @@ they did discover it, they deleted the files.  Therefore, they acted in
 accordance with Section 2.02 of the Software Engineering Code of Ethics.
 
 % subsubsection unittest-fiasco }}}3
+
+\subsubsection{Summary} % {{{3
+\label{ssub:licensing-summary}
+
+Instead of using Oracle's libraries, Google used the Apache Harmony libraries.
+Dalvik uses its own executable format that is distinct from JavaVM.  Google
+created Dalvik and then used Apache~Harmony to supplement its functionality,
+obeying all the terms of the Apache~License~2.0.  All software was either
+created at Google or obtained legally.
+
+% subsubsection licensing-summary }}}3
 
 % subsection licensing }}}2
 
