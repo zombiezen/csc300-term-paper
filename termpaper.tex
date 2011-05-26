@@ -8,7 +8,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 
-\usepackage[toc,numberedsection=autolabel]{glossaries}
+\usepackage[toc]{glossaries}
 \usepackage{multicol}
 \usepackage{setspace}
 
@@ -633,6 +633,9 @@ logical choice.  Google's use of Dalvik is ethical.
 \newpage
 
 %cite all the references from the bibtex you haven't explicitly cited
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
 \nocite{*}
 \bibliographystyle{IEEEannot}
 \bibliography{termpaper}
