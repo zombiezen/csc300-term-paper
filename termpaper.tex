@@ -109,7 +109,7 @@ documentation to help the programmer learn how to make programs for that
 specific environment.  There is usually a programming language that the
 \gls{sdk} encourages (or mandates) programmers to use.  For example, iOS uses
 Objective-C and Android uses Java.  These tools are essential.  Without a
-\gls{sdk}, it is impossible for a third-party developer to create innovative
+\gls{sdk}, it is difficult for a third-party developer to create innovative
 software.
 
 % section intro }}}1
@@ -118,7 +118,7 @@ software.
 \label{sec:facts}
 
 In late 2007, Google (along with a handful of other companies) announced the
-Open~Handset~Alliance \cite{open-handset-alliance-ann} along with Android, the
+Open~Handset~Alliance \cite{open-handset-alliance-ann} and Android, the
 operating system they wished to promote.  The Android operating system is built
 entirely from \gls{opensource} projects.  Anybody can legally obtain a copy of
 the original source code from the Android project.  Most of the projects Android
@@ -157,11 +157,11 @@ converts Java \glspl{bytecode} produced by Oracle's Java compiler into Dalvik
 \glspl{bytecode}.  \cite{android-sdk-building} In order to provide compatibility
 with the Java libraries, Dalvik includes portions of the Apache~Harmony library.
 \cite{apache-harmony} \cite{dalvik-readme}  Apache~Harmony and Dalvik are
-released under the \gls{apl} \cite{apache-license} which is ``preferred by many
+released under the \gls{apl} \cite{apache-license}, which Ryan Paul, a writer for
+the technology news website, Ars Technica, claims is ``preferred by many
 companies because such licenses make it possible to use \gls{opensource}
 software code without having to turn proprietary enhancements back over to the
-\gls{opensource} software community'' \cite{why-apache2-license}, according to
-Ryan Paul, a writer for the technology news website Ars Technica.
+\gls{opensource} software community'' \cite{why-apache2-license}.
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
 infringed upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
@@ -174,14 +174,14 @@ infringed upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
 Is Google's use of the Dalvik \gls{vm} in Android ethical?
 
 If Google is unethical, then their partners in the Open Handset Alliance are
-unethical.  The Android platform is used on a wide variety of phones currently
-on the market distributed by various companies.  This includes Motorola, LG,
-Samsung, and HTC, among many others; all these companies would be using
-unethically obtained software.  This would be disastrous for many companies and
-would harm the public.  This question also has implications beyond Android.  If
-Google is unethical in using Dalvik, other creators of \glspl{vm} could be just
-as unethical.  This would include Red~Hat and the Apache~Software~Foundation ---
-two high-profile \gls{opensource} organizations.
+also unethical.  The Android platform is used on a wide variety of phones
+currently on the market distributed by various companies.  This includes
+Motorola, LG, Samsung, and HTC, among many others; all these companies would be
+using unethically obtained software.  This would be disastrous for many
+companies and would harm the public.  This question also has implications beyond
+Android.  If Google is unethical in using Dalvik, other creators of \glspl{vm}
+could be just as unethical.  This would include Red~Hat and the
+Apache~Software~Foundation --- two high-profile \gls{opensource} organizations.
 
 % end question }}}1
 
@@ -428,10 +428,10 @@ standards whenever possible, so using Java is the proper choice unless there is
 a conflicting ethical or technical reason, according to Section 3.06 of the
 Software Engineering Code of Ethics. \cite[\S3.06]{secode}  By separating Dalvik
 from Oracle's Java implementation, the Android \gls{sdk} can use the Java
-programming language without unethically using Oracle's software.  Including the
-Java programming language promotes Oracle's products.  Oracle is not suffering
-any loss of business due to Google's use of Dalvik.  The choice to use Java is
-ethical.
+programming language without unethically using Oracle's software.  Google's
+decision to include the Java programming language in the Android \gls{sdk}
+promotes Java.  Oracle is not suffering any loss of business due to Google's use
+of Dalvik.  The choice to use Java is ethical.
 
 % subsubsection java-summary }}}3
 
@@ -615,16 +615,15 @@ of life.
 The first goal of the Android platform is to provide a good user experience.
 This promotes utility by making the phone easy to use.  Because Android is
 portable and runs on many phones, users don't have to learn a new interface
-every time they get a new phone (which is a rather frequent occurrence in the
-United States).  Although the primary user is the general public, a large part
-of Android's audience are application developers.  An application can be written
-once and deployed on many different phones with radically different hardware
-specifications, thus reducing development time.  When the first Android tablets
-were introduced, most applications ran correctly on the first day because the
-\gls{vm} could handle the better processor and would abstract the hardware.
-\cite{android-tablet}  The end-users benefits from this abstraction as well.
-Applications behave nicely on their phone: resources are managed, programs are
-secure, and applications are guaranteed to run.
+every time they get a new phone.  Although the primary user is the general
+public, a large part of Android's audience are application developers.  An
+application can be written once and deployed on many different phones with
+radically different hardware specifications, thus reducing development time.
+When the first Android tablets were introduced, most applications ran correctly
+on the first day because the \gls{vm} could handle the better processor and
+would abstract the hardware.  \cite{android-tablet}  The end-users benefits from
+this abstraction as well.  Applications behave nicely on their phone: resources
+are managed, programs are secure, and applications are guaranteed to run.
 
 % subsubsection quality }}}3
 
