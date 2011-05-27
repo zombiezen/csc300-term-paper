@@ -136,9 +136,11 @@ its intellectual property, including Java. \cite{oracle-buys-sun}
 Many programming languages are converted from text directly into instructions
 that the CPU understands.  Java does not get converted directly to CPU
 instructions --- in order to run Java code, one must use a \gls{vm}.  A \gls{vm}
-guarantees that the same program will run on any CPU without modification.  Once
-a \gls{vm} has been written for a particular CPU architecture, the CPU can
-execute programs written for the \gls{vm}.
+is a program written for a particular CPU that runs \gls{bytecode}[
+instructions] that the CPU doesn't natively understand.  A \gls{vm} guarantees
+that the same program will run on any CPU without modification.  Once a \gls{vm}
+has been written for a particular CPU architecture, the CPU can execute programs
+written for the \gls{vm}.
 
 The Java compiler produces a documented, well-defined set of standard
 \glspl{bytecode}, known as the \gls{javavm}[ specification]. \cite[Chapter
