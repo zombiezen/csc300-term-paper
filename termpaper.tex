@@ -135,12 +135,12 @@ its intellectual property, including Java. \cite{oracle-buys-sun}
 
 Many programming languages are converted from text directly into instructions
 that the CPU understands.  Java does not get converted directly to CPU
-instructions --- in order to run Java code, one must use a \gls{vm}.  A \gls{vm}
-is a program written for a particular CPU that runs \gls{bytecode}[
-instructions] that the CPU doesn't natively understand.  A \gls{vm} guarantees
-that the same program will run on any CPU without modification.  Once a \gls{vm}
-has been written for a particular CPU architecture, the CPU can execute programs
-written for the \gls{vm}.
+instructions --- in order to run Java code, one must use a \gls{vm}.
+\cite[Chapter 1]{javavm-bytecode}  A \gls{vm} is a program written for a
+particular CPU that runs \gls{bytecode}[ instructions] that the CPU doesn't
+natively understand.  A \gls{vm} guarantees that the same program will run on
+any CPU without modification.  Once a \gls{vm} has been written for a particular
+CPU architecture, the CPU can execute programs written for the \gls{vm}.
 
 The Java compiler produces a documented, well-defined set of standard
 \glspl{bytecode}, known as the \gls{javavm}[ specification]. \cite[Chapter
@@ -333,7 +333,7 @@ The Android \gls{sdk} provides a environment for developing Android applications
 using the Java programming language.  In light of the lawsuit, using another
 company's programming language seems unethical because it violates section 2.02
 of the Software Engineering Code of Ethics (``Not knowingly use software that is
-obtained or retained either illegally or unethically'' \cite[\S 2.02]{secode}).
+obtained or retained either illegally or unethically'' \cite[\S2.02]{secode}).
 Furthermore, using Java seems like a particularly unethical move when Google
 could have easily avoided the issue by picking another language for the Android
 \gls{sdk}.  The licensing issues regarding Java are addressed later in
@@ -345,14 +345,13 @@ Oracle created both a compiler and a \gls{vm}.  The compiler takes the source
 code the programmer writes and converts it into \glspl{bytecode}, which is then
 run by the \gls{vm}.
 
-% TODO: fix TIOBE cite
 The Software Engineering Code of Ethics presents an obligation to ``work to
 follow professional standards, when available, that are most appropriate for the
 task at hand, departing from these only when ethically or technically
-justified.'' \cite[\S 3.06]{secode}  Java is a mature programming language and
+justified.'' \cite[\S3.06]{secode}  Java is a mature programming language and
 was ranked the most popular programming language in 2006 \cite[Long term
 trends]{tiobe}, the year before Android was released.  Many introductory
-university computer science courses (including Cal Poly's \cite{csc102}) teach
+university computer science courses (including Cal Poly's \cite[Textbooks]{csc102}) teach
 the Java programming language.  The Java programming language is a standard
 because of how widely it is used.  Using Java reduces the amount of work for a
 programmer --- an Android programmer does not have to learn a new language.  As
@@ -400,13 +399,13 @@ Oracle's lawsuit would seem to indicate that Google is harming the public
 Oracle's profits.  Oracle publishes a specification for a similar environment,
 Java Micro Edition.  However, there are no well-known phones that implement Java
 Micro Edition.  Before Android's announcement in 2007, the usage of Java was
-declining, but 2008 showed a sharp increase in interest.  \cite{tiobe}  Android
+declining, but 2008 showed a sharp increase in interest.  \cite{tiobe-java}  Android
 may not be directly related to this increase, but with an influx of developers,
 it would follow that developers will be looking for documentation and resources
 related to Java.  These developers may continue to use Java for other software
 projects to minimize confusion.  At the very least, there is no significant
 decrease in the use of Java.  As of May 2011, Java is still the most widely used
-programming language.  \cite{tiobe}
+programming language.  \cite{tiobe-java}
 
 The Java compiler is already freely distributed under the \gls{gpl}.  Oracle
 makes their money in services relating to Java, not Java itself.  The lack of
@@ -440,7 +439,7 @@ ethical.
 
 Section 2.02 of the Software Engineering Code states that software engineers
 should ``not knowingly use software that is obtained or retained either
-illegally or unethically.'' \cite[\S 2.02]{secode}  Oracle claims that Google is
+illegally or unethically.'' \cite[\S2.02]{secode}  Oracle claims that Google is
 doing exactly that: using software that infringes on their intellectual
 property.  To evaluate this claim, we need to examine the licensing terms for
 both Oracle's Java project and Google's Dalvik project.
@@ -457,7 +456,7 @@ variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
 common platform is to encourage widespread adoption.  The \gls{apl}, another
 common \gls{opensource} license, allows modification or redistribution of
 software (even without releasing the source code), as long as the original
-copyright notice remains intact. \cite{apache-license} Companies prefer the
+copyright notice remains intact. \cite[\S4]{apache-license} Companies prefer the
 \gls{apl} because they want to be able to make proprietary modifications.
 \cite{why-apache2-license} Thus, to promote adoption, Google needed to release
 Android (and Dalvik) under the \gls{apl} (or another similar license).  However,
@@ -477,7 +476,7 @@ uses the Apache~Harmony \gls{library}, an implementation of a subset of Oracle's
 standard \gls{library}, which is released under the \gls{apl}.  In order for
 this to be ethical, the Software Engineering Code of Ethics dictates that
 software engineers ought to ``credit fully the work of others and refrain from
-taking undue credit.'' \cite[\S 7.03]{secode}  Google distributes Dalvik under
+taking undue credit.'' \cite[\S7.03]{secode}  Google distributes Dalvik under
 the same \gls{apl} and credits Harmony in the Dalvik README.
 \cite{dalvik-readme}  The principle of giving credit is upheld.
 
@@ -532,7 +531,7 @@ Software Engineering Code of Ethics.
 As part of a software engineer's duty to the public, a software engineer should
 ``approve software only if they have a well-founded belief that it is safe,
 meets specifications, passes appropriate tests, and does not diminish quality of
-life, diminish privacy or harm the environment.'' \cite[\S~1.03]{secode}  The
+life, diminish privacy or harm the environment.'' \cite[\S1.03]{secode}  The
 possibility of its damage is limited because Android operates on consumer-level
 mobile devices.  No claim has been made that Android is not well-tested; Android
 is derived from the Linux kernel, a well-tested operating system.  Therefore,
