@@ -125,7 +125,7 @@ the original source code from the Android project.  Most of the projects Android
 uses are released under the \gls{apl}, with the exception of the Linux kernel
 (which is released under the \gls{gpl}).  Google provides a \gls{sdk} that
 allows developers to write applications for Android in the Java programming
-language.
+language. \cite{android-sdk-building}
 
 Java is a programming language created by James Gosling that was originally
 maintained by Sun~Microsystems.  In 2006, Sun announced Java's release under the
@@ -330,20 +330,21 @@ Professional Practice or if there is a higher principle that it conflicts with.
 \label{sub:java}
 
 The Android \gls{sdk} provides a environment for developing Android applications
-using the Java programming language.  In light of the lawsuit, using another
-company's programming language seems unethical because it violates section 2.02
-of the Software Engineering Code of Ethics (``Not knowingly use software that is
-obtained or retained either illegally or unethically'' \cite[\S2.02]{secode}).
-Furthermore, using Java seems like a particularly unethical move when Google
-could have easily avoided the issue by picking another language for the Android
-\gls{sdk}.  The licensing issues regarding Java are addressed later in
-section~\ref{sub:licensing} ``Licensing'', but first, why did Google pick Java?
+using the Java programming language. \cite{android-sdk-building}  In light of
+the lawsuit, using another company's programming language seems unethical
+because it violates section 2.02 of the Software Engineering Code of Ethics
+(``Not knowingly use software that is obtained or retained either illegally or
+unethically'' \cite[\S2.02]{secode}).  Furthermore, using Java seems like a
+particularly unethical move when Google could have easily avoided the issue by
+picking another language for the Android \gls{sdk}.  The licensing issues
+regarding Java are addressed later in section~\ref{sub:licensing} ``Licensing'',
+but first, why did Google pick Java?
 
 Java refers to a few different concepts, so it is important to remember that
 there are two components that Java encompasses: the compiler and the \gls{vm}.
 Oracle created both a compiler and a \gls{vm}.  The compiler takes the source
 code the programmer writes and converts it into \glspl{bytecode}, which is then
-run by the \gls{vm}.
+run by the \gls{vm}. \cite[Chapter 1]{javavm-bytecode}
 
 The Software Engineering Code of Ethics presents an obligation to ``work to
 follow professional standards, when available, that are most appropriate for the
@@ -369,7 +370,7 @@ requires an extra step: running the dx program.  dx, a part of the Android
 \gls{sdk}, is a program that converts Java \glspl{bytecode} to Dalvik
 \glspl{bytecode} (the Dalvik executable format, dex).  Dalvik doesn't use
 \gls{javavm} \glspl{bytecode} at all; the architecture is fundamentally
-different.
+different. \cite{javavm-bytecode} \cite{dalvik-bytecode} \cite{dalvik-vm-arch}
 
 Because Dalvik uses dex, Java \glspl{bytecode} are an intermediary, not the
 final product.  Programs could be written that convert other programming
@@ -394,25 +395,27 @@ Oracle's \gls{vm} and still be ethical.
 \subsubsection{Damages to Oracle} % {{{3
 \label{ssub:oracle-damage}
 
-Oracle's lawsuit would seem to indicate that Google is harming the public
-(specifically Oracle) by using unfair business practices to detract from
-Oracle's profits.  Oracle publishes a specification for a similar environment,
-Java Micro Edition.  However, there are no well-known phones that implement Java
-Micro Edition.  Before Android's announcement in 2007, the usage of Java was
-declining, but 2008 showed a sharp increase in interest.  \cite{tiobe-java}  Android
-may not be directly related to this increase, but with an influx of developers,
-it would follow that developers will be looking for documentation and resources
-related to Java.  These developers may continue to use Java for other software
-projects to minimize confusion.  At the very least, there is no significant
-decrease in the use of Java.  As of May 2011, Java is still the most widely used
-programming language.  \cite{tiobe-java}
+Oracle's lawsuit claims that Google is harming the public (specifically Oracle)
+by breaking intellectual property law to detract from Oracle's profits.
+\cite[Count VIII]{oracle-lawsuit} Oracle publishes a specification for a similar
+environment, Java Micro Edition. \cite{java-me}  However, there are no
+well-known phones that implement Java Micro Edition.  Before Android's
+announcement in 2007, the usage of Java was declining, but 2008 showed a sharp
+increase in interest.  \cite{tiobe-java}  Android may not be directly related to
+this increase, but with an influx of developers, it would follow that developers
+will be looking for documentation and resources related to Java.  These
+developers may continue to use Java for other software projects to minimize
+confusion.  At the very least, there is no significant decrease in the use of
+Java.  As of May 2011, Java is still the most widely used programming language.
+\cite{tiobe-java}
 
-The Java compiler is already freely distributed under the \gls{gpl}.  Oracle
-makes their money in services relating to Java, not Java itself.  The lack of
-phones supporting Java Micro Edition suggests that Oracle is not too heavily
-invested in the technology.  Nicholas Artman, a former employee at Apple and
-Yahoo, summarized that ``Oracle is, in essence, suing Google for actively
-preventing Oracle from hemoraging money on phones.'' \cite{artman}
+The Java compiler is already freely distributed under the \gls{gpl}.
+\cite{openjdk-license}  Oracle makes their money in services relating to Java,
+not Java itself.  The lack of phones supporting Java Micro Edition suggests that
+Oracle is not too heavily invested in the technology.  Nicholas Artman, a former
+employee at Apple and Yahoo, summarized that ``Oracle is, in essence, suing
+Google for actively preventing Oracle from hemoraging money on phones.''
+\cite{artman}
 
 % subsubsection oracle-damage }}}3
 
@@ -445,11 +448,11 @@ property.  To evaluate this claim, we need to examine the licensing terms for
 both Oracle's Java project and Google's Dalvik project.
 
 Oracle releases their implementation of the Java compiler and \gls{vm} under the
-\gls{gpl}, which means that it can be redistributed or modified as long as the
-source code is distributed as well.  This is a common \gls{opensource} license,
-but it is referred to as a viral license, because any modifications to a project
-released under the \gls{gpl} have to be made open as well.
-\cite[\S5]{gpl-license} Companies want to be able to make proprietary
+\gls{gpl} \cite{openjdk-license}, which means that it can be redistributed or
+modified as long as the source code is distributed as well.  This is a common
+\gls{opensource} license, but it is referred to as a viral license, because any
+modifications to a project released under the \gls{gpl} have to be made open as
+well.  \cite[\S5]{gpl-license} Companies want to be able to make proprietary
 modifications to their implementations, but the \gls{gpl} does not allow this.
 One of the requirements of Android is to provide a common platform for a wide
 variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
@@ -461,24 +464,25 @@ copyright notice remains intact. \cite[\S4]{apache-license} Companies prefer the
 \cite{why-apache2-license} Thus, to promote adoption, Google needed to release
 Android (and Dalvik) under the \gls{apl} (or another similar license).  However,
 code released under the \gls{gpl} cannot legally be released under the
-\gls{apl}.
+\gls{apl}. \cite{apache-license-gpl}
 
 Google does not include any of Oracle's Java development tools in the Android
-\gls{sdk}; an Android developer must obtain the Java Development Kit directly
-from Oracle.  This means that Google is not redistributing or modifying the Java
-compiler.
+\gls{sdk} \cite{android-sdk-installing}; an Android developer must obtain the
+Java Development Kit directly from Oracle.  This means that Google is not
+redistributing or modifying the Java compiler.
 
 A major part of a Java \gls{vm} is the runtime \gls{library}, which provides
 code that is common to many software projects.  Oracle does include an extensive
 standard \gls{library} in their Java Development Kit, but the Android \gls{sdk}
 specifically disables its use when it compiles an application.  Instead, Google
 uses the Apache~Harmony \gls{library}, an implementation of a subset of Oracle's
-standard \gls{library}, which is released under the \gls{apl}.  In order for
-this to be ethical, the Software Engineering Code of Ethics dictates that
-software engineers ought to ``credit fully the work of others and refrain from
-taking undue credit.'' \cite[\S7.03]{secode}  Google distributes Dalvik under
-the same \gls{apl} and credits Harmony in the Dalvik README.
-\cite{dalvik-readme}  The principle of giving credit is upheld.
+standard \gls{library}, which is released under the \gls{apl}.
+\cite{apache-harmony} \cite{dalvik-readme} In order for this to be ethical, the
+Software Engineering Code of Ethics dictates that software engineers ought to
+``credit fully the work of others and refrain from taking undue credit.''
+\cite[\S7.03]{secode}  Google distributes Dalvik under the same \gls{apl} and
+credits Harmony in the Dalvik README.  \cite{dalvik-readme}  The principle of
+giving credit is upheld.
 
 \subsubsection{The Unit Test Fiasco} % {{{3
 \label{ssub:unittest-fiasco}
@@ -586,12 +590,12 @@ environment between phones without placing burden on application developers.
 
 Dalvik also has some side benefits that are useful for mobile development.
 Because a \gls{vm} has more control over the execution environment, Dalvik can
-more aggressively collect unused memory.  The \gls{vm} can also track all
-requests for resources, so Dalvik can enforce that a program only has access to
-the resources it has permission for (this is discussed in more detail in section
-\ref{ssub:privacy}, ``Privacy and Security'').  Dalvik uses these features to
-make Android secure and memory efficient --- important qualities for maintaining
-user privacy and user experience.
+more aggressively collect unused memory. \cite{dalvik-vm-arch} The \gls{vm} can
+also track all requests for resources, so Dalvik can enforce that a program only
+has access to the resources it has permission for (this is discussed in more
+detail in section \ref{ssub:privacy}, ``Privacy and Security'').  Dalvik uses
+these features to make Android secure and memory efficient --- important
+qualities for maintaining user privacy and user experience.
 
 % subsubsection why-vm }}}3
 
@@ -602,7 +606,7 @@ Section 1.03 of the Software Engineering Code of Ethics states that software
 should not ``diminish the quality of life'' \cite[\S1.03]{secode}.  This idea of
 not diminishing quality of life relates to the ethical theory of utilitarianism:
 that which maximizes utility (or benefit) over a group of people is what is
-good.  It provides a (more or less) objective basis for ethics, and it is a
+good. \cite[pg.~16]{utilitarianism}  It provides a (more or less) objective basis for ethics, and it is a
 higher principle that also applies outside of software engineering.  To be
 consistent with utilitarianism, Android must provide a net positive (or neutral)
 effect on the total utility.  Taking away utility would be diminishing quality
@@ -617,10 +621,10 @@ of Android's audience are application developers.  An application can be written
 once and deployed on many different phones with radically different hardware
 specifications, thus reducing development time.  When the first Android tablets
 were introduced, most applications ran correctly on the first day because the
-\gls{vm} could handle the better processor and would abstract the hardware.  The
-end-users benefits from this abstraction as well.  Applications behave nicely on
-their phone: resources are managed, programs are secure, and applications are
-guaranteed to run.
+\gls{vm} could handle the better processor and would abstract the hardware.
+\cite{android-tablet}  The end-users benefits from this abstraction as well.
+Applications behave nicely on their phone: resources are managed, programs are
+secure, and applications are guaranteed to run.
 
 % subsubsection quality }}}3
 
