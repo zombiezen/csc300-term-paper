@@ -632,9 +632,10 @@ secure, and applications are guaranteed to run.
 \label{ssub:privacy}
 
 The Software Engineering Code of Ethics dictates that software should not
-adversely affect users' privacy.  Dalvik does not directly work with private
-data, but it runs other programs that do.  In this case, Dalvik should promote
-good practices that aide privacy.  This is Dalvik's security layer.
+adversely affect users' privacy. \cite[\S1.03]{secode} Dalvik does not directly
+work with private data, but it runs other programs that do.  In this case,
+Dalvik should promote good practices that aide privacy.  This is Dalvik's
+security layer.
 
 Mobile phones store personal information such as contacts and browsing history.
 With a proprietary phone operating system, it is difficult for security experts
@@ -645,11 +646,12 @@ information without consent.
 
 Whenever a user installs a new application from the Android Market, he or she is
 clearly presented with the list of permissions that the application is
-requesting.  This is part of Dalvik's runtime environment: applications must
-declare what actions they want to use when they are created.  If Dalvik detects
-that an application is trying to access a resource it is not authorized to use,
-Dalvik terminates the application.  Dalvik controls access to private
-information.
+requesting. \cite[Security Architecture]{android-dev-security} This is part of
+Dalvik's runtime environment: applications must declare what resources they want
+to use when they are created.  If Dalvik detects that an application is trying
+to access a resource it is not authorized to use, Dalvik terminates the
+application.  \cite[Using Permissions]{android-dev-security} Dalvik enforces the
+user's ability to opt out.
 
 This would be difficult (although not impossible) to do without a \gls{vm}
 Natively compiled code uses the CPU directly, so there would be more burden on
