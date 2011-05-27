@@ -301,21 +301,21 @@ unit tests and not shipped as part of Android.
 \label{sub:criteria}
 
 Asking whether Google is ethical is not the same as asking whether Google
-infringed on Oracle's intellectual property, although it is an important issue.
-If Google did infringe, then they would be breaking the law, which is unethical.
-However, there may be other conditions that must be met in order for Google's
-use of Dalvik to be ethical.
+infringed on Oracle's intellectual property, although it is relevant in
+answering the former.  If Google did infringe, then they would be breaking the
+law, which is unethical.  However, there might be other conditions that Google
+must meet in order for their use of Dalvik to be ethical.
 
-To determine this criteria, it is important to provide an objective set of
-standards that are well-accepted for the basis of this analysis.  At first
-glance, using Google's Code~of~Conduct \cite{google-conduct} seems like a
-reasonable choice, and many parts of Google's~Code~of~Conduct are applicable to
-this issue.  However, this analysis will use the ACM Software~Engineering
-Code~of~Ethics and Professional~Practice \cite{secode}.  The Association for
-Computing Machinery (or ACM) is ``the world's largest educational and scientific
-computing society'' \cite{acm}.  Their Code~of~Ethics is not affiliated with a
-single company, is well accepted, and includes more restrictions than Google's
-Code~of~Conduct does.
+To determine this criteria and ultimately whether Google is ethical, it is
+important to provide an objective set of standards that are well-accepted for
+the basis of this analysis.  At first glance, using Google's Code~of~Conduct
+\cite{google-conduct} seems like a reasonable choice, and many parts of
+Google's~Code~of~Conduct are applicable to this issue.  However, this analysis
+will use the ACM Software~Engineering Code~of~Ethics and Professional~Practice
+\cite{secode}.  The Association for Computing Machinery (or ACM) is ``the
+world's largest educational and scientific computing society'' \cite{acm}.
+Their Code~of~Ethics is not affiliated with a single company, is well accepted,
+and includes more restrictions than Google's Code~of~Conduct does.
 
 Google is primarily a software company consisting of software engineers.  The
 ACM Software~Engineering Code~of~Ethics and Professional~Practice ``prescribes
@@ -563,9 +563,9 @@ neutral from the user's point of view, but it allows companies to share code:
 Motorola can make bug fixes that assist Samsung, and vice versa, which
 contributes to the user experience (i.e. less unexpected behavior).  Portability
 means that the same software, which is well-tested and mature, can be used on
-many phones and still be useful.  Software that is portable can improve a
-greater number of users on a greater number of devices. These requirements are
-ethical, but are these requirements met?
+many phones and still be useful.  Software that is portable can improve the
+quality of life for a greater number of users on a greater number of devices.
+These requirements are ethical, but are these requirements met?
 
 % subsubsection requirements }}}3
 
@@ -582,17 +582,17 @@ requirements?
 One of Android's goals is to provide portability: an application should be able
 to run on a variety of devices.  Each phone may have slightly different
 hardware; a program which runs well on one phone may run poorly on another
-phone.  A \gls{vm} would provide a predictable, consistent execution environment
-between phones without placing burden on application developers.
+phone.  The Dalvik \gls{vm} provides a predictable, consistent execution
+environment between phones without placing burden on application developers.
 
-A \gls{vm} also has some side benefits that are useful for mobile development.
-Because a \gls{vm} has more control over the execution environment, a \gls{vm}
-can more aggressively collect unused memory.  The \gls{vm} can also track all
-requests for resources, so a \gls{vm} can enforce that a program only has access
-to the resources it has permission for (this is discussed in more detail in
-section \ref{ssub:privacy}, ``Privacy and Security'').  Dalvik uses these
-features to make Android secure and memory efficient --- important qualities for
-maintaining user privacy and user experience.
+Dalvik also has some side benefits that are useful for mobile development.
+Because a \gls{vm} has more control over the execution environment, Dalvik can
+more aggressively collect unused memory.  The \gls{vm} can also track all
+requests for resources, so Dalvik can enforce that a program only has access to
+the resources it has permission for (this is discussed in more detail in section
+\ref{ssub:privacy}, ``Privacy and Security'').  Dalvik uses these features to
+make Android secure and memory efficient --- important qualities for maintaining
+user privacy and user experience.
 
 % subsubsection why-vm }}}3
 
@@ -610,18 +610,18 @@ effect on the total utility.  Taking away utility would be diminishing quality
 of life.
 
 The first goal of the Android platform is to provide a good user experience.
-This promotes utility by making the user's life better by making the phone easy
-to use.  Because Android is portable and runs on many phones, users don't have
-to learn a new interface every time they get a new phone (which is a rather
-frequent occurrence in the United States).  Although the primary user is the
-general public, a large part of Android's audience are application developers.
-An application can be written once and deployed on many different phones with
-radically different hardware specifications, thus reducing development time.
-When the first Android tablets were introduced, most applications ran correctly
-on the first day because the \gls{vm} could handle the better processor and
-would abstract the hardware.  The end-users benefits from this abstraction as
-well.  Applications behave nicely on their phone: resources are managed,
-programs are secure, and applications are guaranteed to run.
+This promotes utility by making the phone easy to use.  Because Android is
+portable and runs on many phones, users don't have to learn a new interface
+every time they get a new phone (which is a rather frequent occurrence in the
+United States).  Although the primary user is the general public, a large part
+of Android's audience are application developers.  An application can be written
+once and deployed on many different phones with radically different hardware
+specifications, thus reducing development time.  When the first Android tablets
+were introduced, most applications ran correctly on the first day because the
+\gls{vm} could handle the better processor and would abstract the hardware.  The
+end-users benefits from this abstraction as well.  Applications behave nicely on
+their phone: resources are managed, programs are secure, and applications are
+guaranteed to run.
 
 % subsubsection quality }}}3
 
