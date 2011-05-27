@@ -50,7 +50,7 @@ a platform for mobile phones. Programmers can write applications for Android in
 Java.  These programs are run with Dalvik --- a virtual machine that Google
 created.  In 2010, Oracle~America~Inc.\ filed a lawsuit against Google
 \cite{oracle-lawsuit}, claiming that Dalvik infringed on Oracle's intellectual
-property.  This raises the question, is Google's use of the Dalvik virtual
+property.  This raises the question: is Google's use of the Dalvik virtual
 machine in Android ethical?  Dalvik is ethical because it uses industry
 standards, follows licensing restrictions, and contributes to the public good,
 in accordance with the ACM~Software~Engineering Code~of~Ethics and
@@ -84,32 +84,33 @@ Mobile phones are becoming an increasingly important aspect of our lives.  When
 cell phones were first introduced, they could only make calls.  Now phones can
 check email, take pictures, give you directions, and even play videos.  This
 complexity came incrementally, but the turning point was with the introduction
-of apps: programs written by third-party developers.
+of programs written by third-party developers.
 
-User programs are certainly not a new concept.  Modern desktop operating systems
-have been running user programs since their inception.  However, cell phones
-traditionally only ran software written by the phone manufacturer; there was no
-need for external programs.  A phone was only designed to make calls; mobile
-development was a niche market.  Every phone had a slightly different
-programming environment, and there wasn't an easy way for users to install new
-applications.
+User programs are certainly not a new concept.  Desktop operating systems like
+Mac OS X and Windows have been running user programs since their inception.
+However, cell phones traditionally only ran software written by the phone
+manufacturer.  There was no need for external programs.  A phone was only
+designed to make calls; mobile development was a niche market.  Every phone had
+a slightly different programming environment, and there wasn't an easy way for
+users to install new applications.
 
 The new trend is toward complex operating systems used on a range of phone
-models.  Apple's iOS is the more visible player in the market, but in 2011,
-Google's Android overtook both iOS and Blackberry with 29\% of the market share
-\cite{android-market-share}.  While iOS is limited to a select number of devices
-created only by Apple, Android is installed on phones from a variety of
-manufacturers and carriers.  Google manages an online marketplace for users to
-install applications written by third-party developers.
+models.  Apple's iOS platform is the more visible player in the market, but in
+2011, Google's Android platform overtook both iOS and Blackberry with 29\% of
+the market share \cite{android-market-share}.  While iOS is limited to a select
+number of devices created only by Apple, Android is installed on phones from a
+variety of manufacturers and carriers.  Google manages an online marketplace for
+users to install applications written by third-party developers.
 
-In order for a developer to write a program for a platform, a developer must
-obtain a \gls{sdk} from the company that made it.  A \gls{sdk} includes tools
-for the programmer to create his or her application and documentation to help
-the programmer learn how to make programs for that specific environment.  There
-is usually a programming language that the \gls{sdk} encourages (or mandates)
-programmers to use.  For example, iOS uses Objective-C and Android uses Java.
-These tools are essential.  Without a \gls{sdk}, it is impossible for a
-third-party developer to create innovative software.
+In order for a developer to write a program for an operating system, a developer
+must obtain a \gls{sdk} from the company that made the operating system.  A
+\gls{sdk} includes tools for the programmer to create his or her application and
+documentation to help the programmer learn how to make programs for that
+specific environment.  There is usually a programming language that the
+\gls{sdk} encourages (or mandates) programmers to use.  For example, iOS uses
+Objective-C and Android uses Java.  These tools are essential.  Without a
+\gls{sdk}, it is impossible for a third-party developer to create innovative
+software.
 
 % section intro }}}1
 
@@ -118,11 +119,13 @@ third-party developer to create innovative software.
 
 In late 2007, Google (along with a handful of other companies) announced the
 Open~Handset~Alliance \cite{open-handset-alliance-ann} along with Android, the
-operating system it wished to promote.  The Android operating system is built
-entirely from \gls{opensource} projects.  Most of the projects Android uses are
-released under the \gls{apl}, with the exception of the Linux kernel (which is
-released under the \gls{gpl}).  Google provides a \gls{sdk} that allows
-developers to write applications for Android in the Java programming language.
+operating system they wished to promote.  The Android operating system is built
+entirely from \gls{opensource} projects.  Anybody can legally obtain a copy of
+the original source code from the Android project.  Most of the projects Android
+uses are released under the \gls{apl}, with the exception of the Linux kernel
+(which is released under the \gls{gpl}).  Google provides a \gls{sdk} that
+allows developers to write applications for Android in the Java programming
+language.
 
 Java is a programming language created by James Gosling that was originally
 maintained by Sun~Microsystems.  In 2006, Sun announced Java's release under the
@@ -134,8 +137,8 @@ Many programming languages are converted from text directly into instructions
 that the CPU understands.  Java does not get converted directly to CPU
 instructions --- in order to run Java code, one must use a \gls{vm}.  A \gls{vm}
 guarantees that the same program will run on any CPU without modification.  Once
-a \gls{vm} has been written for a particular CPU architecture, it can execute
-programs written for the \gls{vm}.
+a \gls{vm} has been written for a particular CPU architecture, the CPU can
+execute programs written for the \gls{vm}.
 
 The Java compiler produces a documented, well-defined set of standard
 \glspl{bytecode}, known as the \gls{javavm}[ specification]. \cite[Chapter
@@ -155,10 +158,11 @@ with the Java libraries, Dalvik includes portions of the Apache~Harmony library.
 released under the \gls{apl} \cite{apache-license} which is ``preferred by many
 companies because such licenses make it possible to use \gls{opensource}
 software code without having to turn proprietary enhancements back over to the
-\gls{opensource} software community.'' \cite{why-apache2-license}
+\gls{opensource} software community'' \cite{why-apache2-license}, according to
+Ryan Paul, a writer for the technology news website Ars Technica.
 
 On August 12, 2010, Oracle filed a lawsuit against Google, claiming that Dalvik
-infringes upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
+infringed upon their intellectual property. \cite[Count VIII]{oracle-lawsuit}
 
 % end facts }}}1
 
@@ -169,13 +173,13 @@ Is Google's use of the Dalvik \gls{vm} in Android ethical?
 
 If Google is unethical, then their partners in the Open Handset Alliance are
 unethical.  The Android platform is used on a wide variety of phones currently
-on the market distributed by various different companies.    This includes
-Motorola, LG, Samsung, and HTC, among many others; all of these companies would
-be using unethically obtained software.  This would be disastrous for many
-companies and would harm the public.  This question also has implications beyond
-Android.  If Google is unethical in using Dalvik, other creators of \glspl{vm}
-could be just as unethical.  This would include Red~Hat and the
-Apache~Software~Foundation --- two high-profile \gls{opensource} developers.
+on the market distributed by various companies.  This includes Motorola, LG,
+Samsung, and HTC, among many others; all these companies would be using
+unethically obtained software.  This would be disastrous for many companies and
+would harm the public.  This question also has implications beyond Android.  If
+Google is unethical in using Dalvik, other creators of \glspl{vm} could be just
+as unethical.  This would include Red~Hat and the Apache~Software~Foundation ---
+two high-profile \gls{opensource} organizations.
 
 % end question }}}1
 
@@ -188,14 +192,20 @@ Apache~Software~Foundation --- two high-profile \gls{opensource} developers.
 Oracle's claim is that ``as a direct and proximate result of Google's direct
 and indirect willful copyright infringement, Oracle America has suffered, and
 will continue to suffer, monetary loss to its business, reputation, and
-goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}
+goodwill.'' \cite[p.~9 line 11]{oracle-lawsuit}  Oracle also claims Google
+infringed on seven of their patents pertaining to the Java programming language.
 
 The first claim being made is that Google is infringing on Oracle's copyright.
-The second claim is that by infringing, Google is harming the public by causing
-losses to Oracle's employees and investors.  Either of these actions could be
-unethical, and the first would certainly be illegal.
+This is illegal under United States copyright law, and would therefore be
+unethical.  The second claim is that by infringing, Google is harming the public
+by causing losses to Oracle's employees and investors.  Either of these actions
+could be unethical.
 
-% TODO: Expand
+Oracle also presented source code files from Android as proof that Google was
+aware of the infringement.  The lawsuit contains a side-by-side comparison of
+Oracle's source code to Google's source code. \cite{exhibitj} If any portion of
+Oracle's software is copied, it would be unauthorized duplication, which is
+illegal and unethical.
 
 % sub args_oracle }}}2
 
@@ -225,6 +235,9 @@ unethical behavior (other than possible patent violations).
 \subsection{The Copied Code Debate} % {{{2
 \label{sub:fosspatents}
 
+\subsubsection{Florian Mueller's Discovery} % {{{3
+\label{ssub:fosspatents}
+
 In January 2011, Engadget (a popular technology news website), posted an article
 indicating that Google may be copying portions of Oracle's code in the Android
 source code repository.  \cite{android-copies-java-code}  Florian Mueller, the
@@ -232,18 +245,30 @@ author of the blog ``FOSS Patents'', originally discovered the similarities in
 the files.  \cite{fosspatents} These observers claim that Google is unethical
 because Google directly copied source code from Oracle.
 
-% TODO: Cite Exhibit J
+% subsubsection fosspatents }}}3
 
-Oracle also used a similar example in their lawsuit as proof that Google was
-aware of the copying.  Exhibit J shows a side-by-side comparison of Oracle's
-source code to Google's source code.  If any portion of Oracle's software is
-copied, it would be unauthorized duplication, which is illegal and unethical.
+\subsubsection{Ars Technica's Defense} % {{{3
+\label{ssub:arstechnica}
 
 Ars Technica (another technology news website) published an article soon after
-claiming that SONiVOX, another member of the Open~Handset~Alliance, were
-responsible for adding the copied files, not Google.  \cite{ars-tech-copying}
-The article made the case that because Google was not aware of the code's
-presence and they swiftly removed the offending code, they were still ethical.
+Engadget's article, claiming that SONiVOX, another member of the
+Open~Handset~Alliance, was responsible for adding the copied files, not Google.
+\cite{ars-tech-copying} The article made the case that because Google was not
+aware of the code's presence and they swiftly removed the offending code, they
+were still acting ethically.
+
+% subsubsection arstechnica }}}3
+
+\subsubsection{ZDNet's Defense} % {{{3
+\label{ssub:zdnet}
+
+Another argument (originally made by Ed Burnette and published on the technology
+news website ZDNet) is that the files are not shipped with Dalvik --- they are
+only used as part of Dalvik's unit tests. \cite{zdnet-copying}  Because these
+files are not part of Dalvik itself, Google is not using illegally obtained code
+to create Dalvik.
+
+% subsubsection zdnet }}}3
 
 % subsection fosspatents }}}2
 
@@ -259,9 +284,9 @@ against Oracle.
 
 Supporters of Dalvik claim that Dalvik is an alternative and fulfills the same
 purpose as Oracle's HotSpot \gls{vm}, but does not use any of the HotSpot's
-software, it is ethical.  SONiVOX's code duplication was unethical, but Google
-was not aware of its use and removed it immediately upon discovery.  The files
-used were only unit tests and not shipped as part of Android.
+software.  SONiVOX's code duplication was unethical, but Google was not aware of
+its use and removed it immediately upon discovery.  The files used were only
+unit tests and not shipped as part of Android.
 
 % subsection args-summary }}}2
 
@@ -273,28 +298,29 @@ used were only unit tests and not shipped as part of Android.
 \subsection{Criteria for Analysis} % {{{2
 \label{sub:criteria}
 
-% TODO
-Much of the ethics of the situation is concerned with Oracle's intellectual
-property.  The scope of the question is much wider, though.  Whether Dalvik is
-ethical is not just dependent on whether it just violates principles, but also
-whether it follows principles.
+Asking whether Google is ethical is not the same as asking whether Google
+infringed on Oracle's intellectual property, although it is an important issue.
+If Google did infringe, then they would be breaking the law, which is unethical.
+However, there may be other conditions that must be met in order for Google's
+use of Dalvik to be ethical.
 
-In order to establish whether Google's actions are ethical or unethical, it is
-important to provide an objective set of standards that are well-accepted for
-the basis of this analysis.  At first glance, using Google's Code of Conduct
-\cite{google-conduct} seems like a reasonable choice, and many parts of Google's
-Code of Conduct are applicable here.  However, this analysis will use the ACM
-Software Engineering Code of Ethics and Professional Practice \cite{secode}, as
-it is non-partial and includes more restrictions than Google's Code of Conduct
-does.
+To determine this criteria, it is important to provide an objective set of
+standards that are well-accepted for the basis of this analysis.  At first
+glance, using Google's Code~of~Conduct \cite{google-conduct} seems like a
+reasonable choice, and many parts of Google's~Code~of~Conduct are applicable to
+this issue.  However, this analysis will use the ACM Software~Engineering
+Code~of~Ethics and Professional~Practice \cite{secode}.  The Association for
+Computing Machinery (or ACM) is ``the world's largest educational and scientific
+computing society'' \cite{acm}.  Their Code~of~Ethics is not affiliated with a
+single company, is well accepted, and includes more restrictions than Google's
+Code~of~Conduct does.
 
-Google is primarily a software company, consisting of software engineers that
-create products, including Dalvik.  The ACM Software Engineering Code of Ethics
-and Professional Practice ``prescribes [the Code] as obligations of anyone
-claiming to be or aspiring to be a software engineer.'' \cite{secode} By this
-measure, Google would be unethical in creating Dalvik if it violated the
-Software Engineering Code of Ethics and Professional Practice \cite{secode} or
-if there was a higher principle that it conflicts with.
+Google is primarily a software company consisting of software engineers.  The
+ACM Software~Engineering Code~of~Ethics and Professional~Practice ``prescribes
+[the Code] as obligations of anyone claiming to be or aspiring to be a software
+engineer.'' \cite{secode} By this measure, Google would be unethical in using
+Dalvik if it violates the ACM Software Engineering Code of Ethics and
+Professional Practice or if there is a higher principle that it conflicts with.
 
 % subsection criteria }}}2
 
@@ -306,16 +332,16 @@ using the Java programming language.  In light of the lawsuit, using another
 company's programming language seems unethical because it violates section 2.02
 of the Software Engineering Code of Ethics (``Not knowingly use software that is
 obtained or retained either illegally or unethically'' \cite[\S 2.02]{secode}).
-Furthermore, using Java seems like a particularly bad idea when Google could
-have simply avoided the issue by picking another language to use.  The licensing
-issues regarding Java are addressed in section~\ref{sub:licensing}
-``Licensing'', but first, why did Google pick Java?
+Furthermore, using Java seems like a particularly unethical move when Google
+could have easily avoided the issue by picking another language for the Android
+\gls{sdk}.  The licensing issues regarding Java are addressed later in
+section~\ref{sub:licensing} ``Licensing'', but first, why did Google pick Java?
 
 Java refers to a few different concepts, so it is important to remember that
 there are two components that Java encompasses: the compiler and the \gls{vm}.
-Oracle has created both a compiler and a \gls{vm}.  The compiler takes the
-source code the programmer writes and converts it into \glspl{bytecode}, which
-is then run by the \gls{vm}.
+Oracle created both a compiler and a \gls{vm}.  The compiler takes the source
+code the programmer writes and converts it into \glspl{bytecode}, which is then
+run by the \gls{vm}.
 
 % TODO: fix TIOBE cite
 The Software Engineering Code of Ethics presents an obligation to ``work to
@@ -324,23 +350,25 @@ task at hand, departing from these only when ethically or technically
 justified.'' \cite[\S 3.06]{secode}  Java is a mature programming language and
 was ranked the most popular programming language in 2006 \cite[Long term
 trends]{tiobe}, the year before Android was released.  Many introductory
-computer science courses (including the one at Cal Poly) teach the Java
-programming language.  The Java programming language is a standard because of
-how widely it is used.  Using Java reduces the amount of work for a programmer
---- an Android programmer does not have to learn a new language.  As long as
-there isn't an ethical or technical conflict, the Software Engineering Code of
-Ethics would recommend Java (the professional standard) in this case.
+university computer science courses (including Cal Poly's \cite{csc102}) teach
+the Java programming language.  The Java programming language is a standard
+because of how widely it is used.  Using Java reduces the amount of work for a
+programmer --- an Android programmer does not have to learn a new language.  As
+long as there isn't an ethical or technical conflict, using Java (the
+professional standard) would be the appropriate action according to the
+Software~Engineering Code~of~Ethics.
 
 \subsubsection{The dx Program} % {{{3
 \label{ssub:dex}
 
-In an ordinary Java project, a developer compiles his or her Java source code
-files and the compiler produces \gls{javavm} \glspl{bytecode}.  Those
+In an ordinary Java project, a developer uses a compiler to convert his or her
+Java source code files into \gls{javavm} \glspl{bytecode}.  Those
 \glspl{bytecode} can be run directly by a Java \gls{vm}.  An Android application
-requires an extra step: dx.  dx, a part of the Android \gls{sdk}, is a program
-that converts Java \glspl{bytecode} to Dalvik \glspl{bytecode} (the Dalvik
-executable format, dex).  Dalvik doesn't use \gls{javavm} \glspl{bytecode} at
-all; the architecture is fundamentally different.
+requires an extra step: running the dx program.  dx, a part of the Android
+\gls{sdk}, is a program that converts Java \glspl{bytecode} to Dalvik
+\glspl{bytecode} (the Dalvik executable format, dex).  Dalvik doesn't use
+\gls{javavm} \glspl{bytecode} at all; the architecture is fundamentally
+different.
 
 Because Dalvik uses dex, Java \glspl{bytecode} are an intermediary, not the
 final product.  Programs could be written that convert other programming
@@ -351,12 +379,14 @@ Dalvik is a generic \gls{vm}.
 Dalvik, then, must be categorized differently than how Oracle is portraying it.
 Dalvik is not an implementation of Java, it is an alternative, just as Pamela
 Jones argued. \cite{groklaw}  Oracle's HotSpot and Google's Dalvik solve the
-same problem, but they do it in different ways.  Copying someone else's
+same problem, but they solve it in different ways.  Copying someone else's
 implementation is certainly intellectual property infringement, but making a
 different program that accomplishes the same task is ethical.  For instance, no
 one is arguing that Google Docs is violating Oracle's OpenOffice intellectual
-property, even though they share many of the same features.  Products can solve
-the same problem and still be ethical.
+property, even though they share many of the same features.  A product that
+solves a problem differently is a different product.  Thus, Dalvik does not
+infringe upon Oracle's patents.  Dalvik can have a purpose that is similar to
+Oracle's \gls{vm} and still be ethical.
 
 % subsubsection dex }}}3
 
@@ -366,13 +396,15 @@ the same problem and still be ethical.
 Oracle's lawsuit would seem to indicate that Google is harming the public
 (specifically Oracle) by using unfair business practices to detract from
 Oracle's profits.  Oracle publishes a specification for a similar environment,
-Java Micro Edition, but there are no well-known phones that implement it.
-Before Android's announcement in 2007, the usage of Java was declining, but 2008
-showed a sharp increase in interest.  \cite{tiobe}  Android may not be directly
-related to this increase, but with an influx of developers, it would follow that
-developers will be looking for documentation and resources related to Java.
-These developers may continue to use Java for other software projects to
-minimize confusion.
+Java Micro Edition.  However, there are no well-known phones that implement Java
+Micro Edition.  Before Android's announcement in 2007, the usage of Java was
+declining, but 2008 showed a sharp increase in interest.  \cite{tiobe}  Android
+may not be directly related to this increase, but with an influx of developers,
+it would follow that developers will be looking for documentation and resources
+related to Java.  These developers may continue to use Java for other software
+projects to minimize confusion.  At the very least, there is no significant
+decrease in the use of Java.  As of May 2011, Java is still the most widely used
+programming language.  \cite{tiobe}
 
 The Java compiler is already freely distributed under the \gls{gpl}.  Oracle
 makes their money in services relating to Java, not Java itself.  The lack of
@@ -386,15 +418,16 @@ preventing Oracle from hemoraging money on phones.'' \cite{artman}
 \subsubsection{Summary} % {{{3
 \label{ssub:java-summary}
 
-Java is now a well-established programming language in software engineering.
-The Software Engineering Code of Ethics encourages the use of standards whenever
-possible, so using Java is the proper choice unless there is a conflicting
-ethical or technical reason, according to Section 3.06 of the Software
-Engineering Code of Ethics. \cite[\S3.06]{secode}  By separating Dalvik from
-Oracle's Java implementation, the Android \gls{sdk} can use the Java programming
-language without unethically using Oracle's software.  Including the Java
-programming language promotes Oracle's products and helps them, rather than
-hindering them.  The choice to use Java is ethical.
+Java is now a well-established programming language in the software engineering
+industry.  The Software Engineering Code of Ethics encourages the use of
+standards whenever possible, so using Java is the proper choice unless there is
+a conflicting ethical or technical reason, according to Section 3.06 of the
+Software Engineering Code of Ethics. \cite[\S3.06]{secode}  By separating Dalvik
+from Oracle's Java implementation, the Android \gls{sdk} can use the Java
+programming language without unethically using Oracle's software.  Including the
+Java programming language promotes Oracle's products.  Oracle is not suffering
+any loss of business due to Google's use of Dalvik.  The choice to use Java is
+ethical.
 
 % subsubsection java-summary }}}3
 
@@ -414,53 +447,59 @@ Oracle releases their implementation of the Java compiler and \gls{vm} under the
 \gls{gpl}, which means that it can be redistributed or modified as long as the
 source code is distributed as well.  This is a common \gls{opensource} license,
 but it is referred to as a viral license, because any modifications to a project
-released under the \gls{gpl} have to be made open as well. \cite[\S5]{gpl-license}
-Companies want to be able to make proprietary modifications for their
-implementations, but the \gls{gpl} does not allow this.  One of the requirements
-of Android is to provide a common platform for a wide variety of phones
-\cite{open-handset-alliance-ann}; the only way to ensure a common platform is to
-encourage widespread adoption.  The \gls{apl}, another common \gls{opensource}
-license, allows any modification or redistribution, as long as the original
-copyright notice remains intact.  Companies prefer the \gls{apl} because they
-want to be able to make proprietary modifications.  \cite{why-apache2-license}
-Thus, to promote adoption, Google needed to release Android (and Dalvik) under
-the \gls{apl} (or something similar).  However, code released under the
-\gls{gpl} cannot legally be released under the \gls{apl}.
+released under the \gls{gpl} have to be made open as well.
+\cite[\S5]{gpl-license} Companies want to be able to make proprietary
+modifications to their implementations, but the \gls{gpl} does not allow this.
+One of the requirements of Android is to provide a common platform for a wide
+variety of phones \cite{open-handset-alliance-ann}; the only way to ensure a
+common platform is to encourage widespread adoption.  The \gls{apl}, another
+common \gls{opensource} license, allows modification or redistribution of
+software (even without releasing the source code), as long as the original
+copyright notice remains intact. \cite{apache-license} Companies prefer the
+\gls{apl} because they want to be able to make proprietary modifications.
+\cite{why-apache2-license} Thus, to promote adoption, Google needed to release
+Android (and Dalvik) under the \gls{apl} (or another similar license).  However,
+code released under the \gls{gpl} cannot legally be released under the
+\gls{apl}.
 
-Google does not include any Java development tools in the Android \gls{sdk}; an
-Android developer must obtain the Java Development Kit directly from Oracle.
-This means that Google is not redistributing or modifying the Java compiler.  A
-major part of a Java \gls{vm} is the runtime \gls{library}, which provides code
-that is common to many software projects.  Oracle does include an extensive
+Google does not include any of Oracle's Java development tools in the Android
+\gls{sdk}; an Android developer must obtain the Java Development Kit directly
+from Oracle.  This means that Google is not redistributing or modifying the Java
+compiler.
+
+A major part of a Java \gls{vm} is the runtime \gls{library}, which provides
+code that is common to many software projects.  Oracle does include an extensive
 standard \gls{library} in their Java Development Kit, but the Android \gls{sdk}
 specifically disables its use when it compiles an application.  Instead, Google
 uses the Apache~Harmony \gls{library}, an implementation of a subset of Oracle's
-standard \gls{library} released under the \gls{apl}.  In order for this to be
-ethical, the Software Engineering Code of Ethics dictates that software
-engineers ought to ``credit fully the work of others and refrain from taking
-undue credit.'' \cite[\S 7.03]{secode}  Google distributes Dalvik under the same
-\gls{apl} and credits Harmony in the Dalvik README.  \cite{dalvik-readme}  The
-principle of giving credit is upheld.
+standard \gls{library}, which is released under the \gls{apl}.  In order for
+this to be ethical, the Software Engineering Code of Ethics dictates that
+software engineers ought to ``credit fully the work of others and refrain from
+taking undue credit.'' \cite[\S 7.03]{secode}  Google distributes Dalvik under
+the same \gls{apl} and credits Harmony in the Dalvik README.
+\cite{dalvik-readme}  The principle of giving credit is upheld.
 
 \subsubsection{The Unit Test Fiasco} % {{{3
 \label{ssub:unittest-fiasco}
 
 The Oracle lawsuit includes examples of code in Dalvik that matches code inside
-of the HotSpot \gls{vm}.  As noted in section \ref{sub:fosspatents}, ``Copied
-Code'', Florian Mueller made the claim that additional files in the Dalvik
-repository were copied directly from Oracle's HotSpot \gls{vm}, beyond the files
-that Oracle mentioned. \cite{fosspatents}  If Google knowingly copied code
-illegally, then Dalvik is unethical.
+of the HotSpot \gls{vm}. \cite{exhibitj} As noted in section
+\ref{ssub:fosspatents}, ``Florian Mueller's Discovery'', Florian Mueller made
+the claim that additional files in the Dalvik repository were copied directly
+from Oracle's HotSpot \gls{vm}, beyond the files that Oracle mentioned.
+\cite{fosspatents}  If Google knowingly copied code illegally, then Dalvik is
+unethical.
 
-The duplicated files are not part of the Dalvik, but are in a separate support
-directory.  Dalvik does not use them directly, but developers used the files to
-perform unit tests.  When Dalvik is built and deployed, it does not include
-these files.  Therefore Dalvik itself does not contain any software that is
-illegally obtained.  Google did not know that the code had been copied
-illegally, and once they discovered it, they deleted the offending files from
-the repository.  Although they used software that was retained illegally, they
-did not do so knowingly.  Therefore, they still acted in accordance with Section
-2.02 of the Software Engineering Code of Ethics.
+The duplicated files are not a part of Dalvik, but are in a separate support
+directory.  Dalvik does not use them directly.  The developers working on
+Android used the files to perform unit tests.  When Dalvik is built and deployed
+on a phone, it does not include these files. \cite{zdnet-copying} Therefore,
+Dalvik itself does not contain any software that is illegally obtained.  Google
+did not know that the code had been copied illegally, and once they discovered
+it, they deleted the offending files from the repository.  Although they used
+software that was retained illegally, they did not do so knowingly.  Therefore,
+they still acted in accordance with Section 2.02 of the Software Engineering
+Code of Ethics.
 
 % subsubsection unittest-fiasco }}}3
 
